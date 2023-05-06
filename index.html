@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Juegatón</title>
+
+        <!--Iconos importados de fontawesome-->
+        <script src="https://kit.fontawesome.com/d20c834341.js" crossorigin="anonymous"></script>
+
+        <!--Libreria para el dropdown con banderas-->
+        <link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" />
+        <link rel="stylesheet" href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css"/>
+        <link rel="stylesheet" href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+        <!--Estilo propio-->
+        <link rel="stylesheet" href="style.css"/>
+        
+
+    </head>
+    <body>
+        <div class="login">
+            <h2>Inicia sesión en Juegatón!</h2>
+            <form id="login-form">
+                <span class="fa-solid fa-key"><label for="nick">Nickname:</label>
+                </span>
+                <input type="text" id="nick" name="nick" /><br />
+
+                <span class="fa-solid fa-user-lock"><label for="passwd">Contraseña:</label></span>
+                <input type="password" id="passwd" name="password" /><br />
+
+                <!-- Emoticono font awesome-->
+                <button type="submit">Iniciar sesión</button> <br />
+                <button type="button" id="register">
+                    No tienes una cuenta?<br />Regístrate
+                </button>
+            </form>
+        </div>
+        <div class="register">
+            <form id="regist-form">
+                <label for="name">Nombre: </label>
+                <input type="text" id="name" name="fname" /> <br />
+                <label for="surname">Apellido: </label>
+                <input type="text" id="surname" name="surname" /><br />
+                <label for="nick">Nickname: </label>
+                <input type="text" id="newNick" name="nick" /><br />
+                <label for="passwd">Contraseña: </label>
+                <input type="password" id="newPasswd" name="password" /><br />
+                <label for="color">Elige el color de tu personaje: </label>
+                <input type="color" id="color" name="color" value="#ff0000" /><br/>
+                <label for="country">País</label>
+                <select class="selectpicker countrypicker" id="country" data-flag="true"></select> <br/>
+
+                <button type="button" id="changeColor">Aplicar</button> <br />
+                <!-- Emoticono font awesome-->
+                <i id="emo" class="fa-solid fa-person-running"></i> <br />
+                <button type="submit">Guardar</button> <br />
+                <button type="button" id="login">Inicia sesión</button>
+            </form>
+        </div>
+
+        <script src="Modelos/Jugador.js"></script>
+        <script src="controlador.js"></script>
+        <script src="vista.js"></script>
+
+        <!--COUNTRY PICKER -->
+        <script src="//cdn.tutorialjinni.com/jquery/3.6.1/jquery.min.js"></script>
+        <script src="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+        <script src="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
+    </body>
+</html>
