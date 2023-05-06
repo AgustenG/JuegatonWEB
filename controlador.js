@@ -9,7 +9,7 @@ function getCookie(name) {
 function Login(nickName) 
 {
   //Método GET por defecto
-  fetch(`https://localhost:7104/Jugador/${nickName}`)
+  fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
     .then((response) => response.json())
     .then((json) => {
         (this.posts = json)
@@ -40,7 +40,7 @@ function Registrarse(){
     var player = new Jugador(name,surname,nickname,passwd,country,color)
     console.log(player);
     //Método POST para enviar informacion
-    let url="https://localhost:7104/Jugador";
+    let url="https://apipost.azurewebsites.net/Jugador";
     let post = {
         method: 'POST',
         body: JSON.stringify(player),

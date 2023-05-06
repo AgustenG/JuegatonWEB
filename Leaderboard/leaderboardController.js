@@ -6,7 +6,7 @@ fetch(`https://apipost.azurewebsites.net/Jugador`)
             if(jugador.puntuacion > 0) allPlayers.push(jugador);
         });
         llenarTabla();
-        sortTable();
+        sortTable(); // Ordenamos por defecto la tabla por puntuación
     }, )
 
 function llenarTabla(){
