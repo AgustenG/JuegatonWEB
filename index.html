@@ -7,57 +7,107 @@
         <title>Juegatón</title>
 
         <!--Iconos importados de fontawesome-->
-        <script src="https://kit.fontawesome.com/d20c834341.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/d20c834341.js"
+            crossorigin="anonymous"></script>
 
         <!--Libreria para el dropdown con banderas-->
-        <link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" />
+        <link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css"/>
         <link rel="stylesheet" href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css"/>
         <link rel="stylesheet" href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
+        
         <!--Estilo propio-->
         <link rel="stylesheet" href="style.css"/>
-        
 
     </head>
+
     <body>
-        <div class="login">
-            <h2>Inicia sesión en Juegatón!</h2>
-            <form id="login-form">
-                <span class="fa-solid fa-key"><label for="nick">Nickname:</label>
-                </span>
-                <input type="text" id="nick" name="nick" /><br />
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/Leaderboard/leaderboard.html">Leaderboard</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="wrapper">
+            <!--LOGIN-->
+            <div class="form-box login">
+                <h2>Inicia sesión</h2>
+                <form id="login-form">
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-user"></span>
+                        <input type="text" required id="nick" name="nick"/>
+                        <label for="nick">Nickname</label>
+                    </div>
 
-                <span class="fa-solid fa-user-lock"><label for="passwd">Contraseña:</label></span>
-                <input type="password" id="passwd" name="password" /><br />
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-lock"></span>
+                        <input type="password" required id="passwd"
+                            name="password" />
+                        <label for="passwd">Contraseña</label>
+                    </div>
+                    <button class="btn submit" type="submit">Iniciar sesión</button>
+                    <div id="login-message"></div>
+                    <div class="login-register">
+                        <p>
+                            No tienes una cuenta?
+                            <a href="#" class="register-link">Regístrate</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
 
-                <!-- Emoticono font awesome-->
-                <button type="submit">Iniciar sesión</button> <br />
-                <button type="button" id="register">
-                    No tienes una cuenta?<br />Regístrate
-                </button>
-            </form>
-        </div>
-        <div class="register">
-            <form id="regist-form">
-                <label for="name">Nombre: </label>
-                <input type="text" id="name" name="fname" /> <br />
-                <label for="surname">Apellido: </label>
-                <input type="text" id="surname" name="surname" /><br />
-                <label for="nick">Nickname: </label>
-                <input type="text" id="newNick" name="nick" /><br />
-                <label for="passwd">Contraseña: </label>
-                <input type="password" id="newPasswd" name="password" /><br />
-                <label for="color">Elige el color de tu personaje: </label>
-                <input type="color" id="color" name="color" value="#ff0000" /><br/>
-                <label for="country">País</label>
-                <select class="selectpicker countrypicker" id="country" data-flag="true"></select> <br/>
-
-                <button type="button" id="changeColor">Aplicar</button> <br />
-                <!-- Emoticono font awesome-->
-                <i id="emo" class="fa-solid fa-person-running"></i> <br />
-                <button type="submit">Guardar</button> <br />
-                <button type="button" id="login">Inicia sesión</button>
-            </form>
+            <div class="form-box register">
+                <h2>Registro</h2>
+                <form id="regist-form">
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-pen"></span>
+                        <input type="text" required id="name" name="fname"/>
+                        <label for="nick">Nombre</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-pen"></span>
+                        <input type="text" required id="surname"
+                            name="surname"/>
+                        <label for="nick">Apellidos</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-user"></span>
+                        <input type="text" required id="newNick" name="nick"/>
+                        <label for="nick">Nickname</label>
+                    </div>
+                    
+                    <div class="input-box">
+                        <span class="icon fa-solid fa-lock"></span>
+                        <input type="password" required id="newPasswd"
+                            name="password" />
+                        <label for="passwd">Contraseña</label>
+                    </div>
+                    <div class="picker">        
+                        <select class="selectpicker countrypicker" id="country" data-flag="true"></select>
+                    </div>
+                    <div class="colorUser">
+                        <input class="color" type="color" id="color"
+                            name="color"/>
+                        <i id="emo" class="fa-solid fa-person-running"></i>
+                    </div>
+                    
+                    <button class="btn submit" type="submit">Registrarse</button>
+                    <div id="register-message"></div>
+                    <div id="succesful-register-message"></div>
+                    <div class="login-register">
+                        <p>
+                            Ya tienes una cuenta?
+                            <a href="#" class="login-link">Inicia sesión</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <script src="Modelos/Jugador.js"></script>

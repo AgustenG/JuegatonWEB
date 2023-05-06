@@ -11,30 +11,34 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <header> 
+      <nav>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>  
+    </header> 
     <h1>LEADERBOARD</h1>
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>JUGADOR</th>
-          <th>PAÍS</th>
-          <th>PERSONAJE</th>
-          <th>PUNTUACIÓN</th>
-          <th>POSICION</th>
-        </tr>
-      </thead>
-      <tbody id="leaderboard"></tbody>
-    </table>
+    <div class="wrapper">
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>JUGADOR</th>
+            <th>PAÍS</th>
+            <th>PERSONAJE</th>
+            <th>PUNTUACIÓN</th>
+            <th>POSICION</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard"></tbody>
+      </table>
+    </div>
     <script src="leaderboardController.js"></script>
   </body>
 </html>

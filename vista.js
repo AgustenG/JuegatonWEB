@@ -1,22 +1,19 @@
-// Variables de login
-const btnRegister = document.getElementById("register");
-const btnLogin = document.getElementById("login");
-const registerDiv = document.querySelector(".register");
-const loginDiv = document.querySelector(".login");
+const wrapper = document.querySelector('.wrapper');
+const loginLink = document.querySelector('.login-link');
+const registerLink = document.querySelector('.register-link');
 
-// Ocultamos el formulario de login y mostramos el de registro
-btnRegister.addEventListener("click", function (event) {
-  registerDiv.style.display = "block";
-  loginDiv.style.display = "none";
+//Cuando se le de al botón para registrarse, el wrapper recibirá el atributo active y cambiarán de sitio
+registerLink.addEventListener("click", ()=>{
+wrapper.classList.add('active');
+
 });
+//Cuando se le de al botón de iniciar sesión se eliminará el atributo active del wrapper.
+loginLink.addEventListener("click", ()=>{
+  wrapper.classList.remove('active');
+  
+  });
 
-// Ocultamos el formulario de registro y mostramos el de ogin
-btnLogin.addEventListener("click", function (event) {
-  registerDiv.style.display = "none";
-  loginDiv.style.display = "block";
-});
 
-// Cuando se le da al boton de submit en el login se enviara el nick a la funcion Login()
 const loginForm = document.getElementById("login-form");
 loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -37,13 +34,13 @@ function reColor() {
 		emot.style.color = fontColor;
 	}
 }
-
 // Creación de una variable para cambiar el color del usuario
-var color = document.getElementById("changeColor");
+var color = document.getElementById("color");
 
 // Evento que cambiará el color del usuario cuando este use el botón aplicar
-color.addEventListener("click", function (event) {
+color.addEventListener("input", function (event) {
 	var colorStickman = document.getElementById("color").value;
 	//Guardado de la configuración escogida por el usuario
 	reColor();
 });
+

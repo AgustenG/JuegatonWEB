@@ -8,6 +8,7 @@ function getCookie(name) {
 // Funcion que consume la URI del jugador e indica si la contraseña escrita por el usuario es correcta
 function Login(nickName) 
 {
+const message = document.getElementById('login-message');
   //Método GET por defecto
   fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
     .then((response) => response.json())
@@ -17,10 +18,10 @@ function Login(nickName)
             alert("Te has logeado correctamente");
             PaginaPrincipal();
         } else{
-            alert("Contraseña incorrecta");
+            message.innerText = 'Contraseña incorrecta. Vuelve a intentarlo.';
         }
     }, )
-    .catch((error) => alert("Usuario no existe."));
+    .catch((error) =>  message.innerText = 'El usuario o la contraseña no existen');
 }
 
 // Procedimiento que te envia al juego
@@ -29,6 +30,8 @@ function PaginaPrincipal(){
 }
 
 function Registrarse(){
+    const message = document.getElementById('register-message');
+    const message2 = document.getElementById('succesful-register-message');
     // Creamos una instancia de la clase Jugador, con los datos introducidos por el usuario
     var name = document.getElementById("name").value;
     var surname = document.getElementById("surname").value;
@@ -50,7 +53,11 @@ function Registrarse(){
     }
    fetch(url, post)
      .then((response) => response.json())
-     .catch((error) => alert("Este nickname ya esta siendo usado"));
+     .then((json)=> {
+        (this.posts = json)
+        message2.innerText = 'Usuario registrado correctamente';
+     }, )
+     .catch((error) =>  message.innerText = 'Ha habido un error, vuelve a intentarlo');
     
 }
 
