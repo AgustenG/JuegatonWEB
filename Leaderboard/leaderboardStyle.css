@@ -30,10 +30,12 @@ th {
 }
 td {
   color: #ffde59;
-  background-color: #2e1d84;
+  background-color: transparent;
 }
 h1 {
-  background-color: #2e1d84;
+  background-color: transparent;
+  backdrop-filter: blur(50px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   color: #ffde59;
   text-align: center;
   padding: 10px;
@@ -98,8 +100,8 @@ h1 {
   justify-content: center;
 }
 body {
-  background: url("https://steamuserimages-a.akamaihd.net/ugc/1678120729579339650/40A46978EF29C7099912D8CA459BBC9FAC764F2E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false")
-    no-repeat;
+  background: url("/wpp2.jpg")
+  no-repeat;
   background-size: cover;
   min-height: 100vh;
   width: 100vw;
@@ -120,13 +122,14 @@ nav {
   padding: 5px;
 }
 nav ul {
-  background-color: #2e1d84;
+  background-color: transparent;
+  backdrop-filter: blur(50px);
   list-style-type: none;
   margin: 0;
   padding: 10px;
   display: flex;
   width: 100%;
-  border-bottom: 2px solid #ffde59;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   border-radius: 2em;
   -webkit-border-radius: 2em;
   -moz-border-radius: 2em;
