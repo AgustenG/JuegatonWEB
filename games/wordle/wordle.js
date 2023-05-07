@@ -34,7 +34,7 @@ comprobar.addEventListener("click", function() {
     var charSplit = String(wordUser).split("");
     var msg = document.querySelector("#info");
 
-    charSplit = IsCorrect(charSplit, secret, msg);
+    IsCorrect(charSplit, secret, msg);
 
 })
 
@@ -61,8 +61,8 @@ function IsCorrect(charSplit, secret, msg) {
             showAnswer(charSplit, secret);
         } else {
             if (intentoActual < intentoMax) {
-                msg.textContent = "Intento: " + (intentoActual + 1) + "/" + intentoMax;
                 intentoActual++;
+                msg.textContent = "Intento: " + (intentoActual) + "/" + intentoMax;
             } else {
                 msg.textContent = "Has perdido. La respuesta correcta aparecera arriba: ";
                 showAnswer(charSplit, secret);
