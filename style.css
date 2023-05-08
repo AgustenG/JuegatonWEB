@@ -13,6 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   flex-flow: row wrap;
+
   
 }
 
@@ -24,7 +25,6 @@ body {
 }
 .bs-searchbox {
   background-color: transparent;
-;
 }
 
 
@@ -154,7 +154,9 @@ background-color: transparent;
 
     
 }
-
+li.no-results {
+  background-color: transparent !important;
+}
 
 .form-box h2 {
   font-size: 2em;
