@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <title>Juegaton: Wordle</title>
     <link rel="stylesheet" href="wordle.css">
 </head>
+
 <body>
     <main>
         <h1 class="flex center">Wordle</h1>
-        
+
         <!-- Palabra secreta -->
         <section id="secret" class="flex wrap center">
             <div class="w100 flex wrap">
@@ -39,6 +41,7 @@
             <input type="text" id="word" name="word" class="w90" maxlength="5">
             <br>
             <button id="check" class="w90">Comprobar</button>
+            <button id="return" class="w90" style="display: none;">Volver a la pagina principal</button>
         </section>
 
         <!-- Mensajes -->
@@ -52,4 +55,5 @@
     </main>
     <script src="wordle.js"></script>
 </body>
+
 </html>

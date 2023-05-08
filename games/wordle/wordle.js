@@ -3,6 +3,9 @@ const secret = [];
 var intentoMax = 5;
 var intentoActual = 0;
 var comprobar = document.getElementById("check");
+const wordUser = document.querySelector("#word");
+var backPage = document.getElementById("return");
+let puntos = 0;
 
 
 palabraSecreta();
@@ -10,13 +13,14 @@ palabraSecreta();
 // Funcion que recibe un json de la API y elige una palabra random de ese JSON y la guarda en caracteres separados en la array secret
 function palabraSecreta() {
     fetch("https://apipost.azurewebsites.net/wordle")
+        // fetch("https://localhost:7104/Wordle")
         .then((response) => response.json())
         .then((json) => {
             const randomIndex = Math.floor(Math.random() * json.length);
             if (json[randomIndex].palabra_Id === randomIndex + 1) {
                 const palabraElegida = json[randomIndex].palabra;
                 secret.push(...palabraElegida.split(''));
-                // console.log(`Tu palabra es: ${secret}`);
+                console.log(`Tu palabra es: ${secret}`);
             } else {
                 console.log(`No se encontró ninguna palabra con el índice ${randomIndex + 1}`);
             }
@@ -25,17 +29,34 @@ function palabraSecreta() {
 
 }
 
+// Le añadimos un evento al input del usuario por si al terminar de escribir pulsa ENTER en lugar del boton Comprobar
+wordUser.addEventListener("keydown", function(event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        comprobar.dispatchEvent(new Event("click"));
+    }
+})
+
+// Boton para volver a la pagina principal y mandar la puntuacion
+backPage.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log(puntos);
+    localStorage.setItem('puntos', puntos);
+    window.location.href = "../../principal.html";
+})
+
 /*  
     Cuando el usuario escriba su palabra y le de al boton se realizara una serie de comprovaciones:
     1. Si la palabra del usuario tiene exactamente cinco letras
     2. Si la palabra es igual a la palabra secreta
 */
 comprobar.addEventListener("click", function() {
-    var wordUser = document.querySelector("#word").value;
-    var charSplit = String(wordUser).split("");
+    var wordUser = document.querySelector("#word");
+    var charSplit = String(wordUser.value).split("");
     var msg = document.querySelector("#info");
 
     IsCorrect(charSplit, secret, msg);
+    wordUser.value = "";
 
 })
 
@@ -76,8 +97,23 @@ function IsCorrect(charSplit, secret, msg) {
 function showAnswer(charSplit, secret) {
     let divAnswer = document.getElementsByClassName("cel flex");
     for (i = 0; i < charSplit.length; i++) {
-        divAnswer[i].textContent = secret[i];
+        divAnswer[i].textContent = secret[i].toUpperCase();
     }
+
+    if (intentoActual == 0) {
+        puntos = 100;
+    } else if (intentoActual < intentoMax) {
+        let i = 0;
+        do {
+            puntos -= 10;
+            i++;
+        } while (i != intentoActual);
+    } else {
+        puntos = 0;
+    }
+
+    backPage.style.display = "block";
+    comprobar.style.display = "none";
 }
 
 // Funcion que comprueba si cada letra coincide con la letra de la palabra secreta o no.
@@ -120,5 +156,5 @@ function AssingDivResult(divFila, seccionResult, color, char) {
     seccionResult.appendChild(divFila);
 
     divLetter.style.backgroundColor = color;
-    divLetter.textContent = char;
+    divLetter.textContent = char.toUpperCase();
 }
