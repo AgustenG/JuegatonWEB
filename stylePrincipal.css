@@ -1,0 +1,165 @@
+*{
+    font-family: "Ubuntu", sans-serif;
+    color:#ffde59;
+   text-decoration: none;
+}
+
+body{
+
+    background: url('wpp2.jpg') no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+div i{
+    text-align: end;
+    font-size: 45px;
+    height: 30%;
+    color: #183F7F ;
+}
+
+span{
+    color: #183F7F ;
+    text-align: end;
+    font-size: 45px;
+    
+}
+.player {
+   display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+.circle{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: #FFE57C;
+    text-align: center;
+}
+
+.levels{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+table{
+    align-self: start;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #688CC3;
+    border-radius: 10%;
+    width: 100%;
+
+}
+
+th{
+    background-color: black;
+    color: #ffde59;
+}
+
+tr{
+    color: #ffde59;
+
+}
+.wrapper {
+    display: flex;
+
+}
+td{
+    padding: 3%;
+}
+
+p{
+    font-size: 20px;
+    font-weight: 900;
+    color: #688CC3 ;
+    text-align: center;
+}
+.leaderboard{
+    width: 30%;
+    margin:2%;
+    display:flex;
+    flex-direction: column;
+
+}
+
+
+.fa-gear{
+    cursor: pointer;
+    padding: 0px;
+    background: none;
+    transition: 200ms;
+    border: 0;
+}
+.fa-gear:hover {
+    cursor: pointer;
+    transition: 200ms;
+    color:white;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -ms-transition: 200ms;
+    -o-transition: 200ms;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/*BARRA DE NAVEGADOR*/
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+  }
+  nav {
+    margin: 0;
+    padding: 0;
+
+  }
+  nav ul {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    font-size: 1.3em;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    border-radius: 2em;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    -ms-border-radius: 2em;
+    -o-border-radius: 2em;
+    justify-content: space-around;
+  }
+  nav ul li {
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    
+  }
+  nav ul li a {
+    
+    width: 100%;
+    color: #ffeea8;
+  }
+  nav ul li a:hover {
+    transition: 200ms;
+    color: #ffe57c;
+    font-size: 1.2em;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -ms-transition: 200ms;
+    -o-transition: 200ms;
+  }
