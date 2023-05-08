@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegaton: Wordle</title>
+    <link rel="stylesheet" href="wordle.css">
+</head>
+<body>
+    <main>
+        <h1 class="flex center">Wordle</h1>
+        
+        <!-- Palabra secreta -->
+        <section id="secret" class="flex wrap center">
+            <div class="w100 flex wrap">
+                <div class="w20">
+                    <div class="cel flex">*</div>
+                </div>
+                <div class="w20">
+                    <div class="cel flex">*</div>
+                </div>
+                <div class="w20">
+                    <div class="cel flex">*</div>
+                </div>
+                <div class="w20">
+                    <div class="cel flex">*</div>
+                </div>
+                <div class="w20">
+                    <div class="cel flex">*</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interaccion con el jugador -->
+        <section class="w100 flex wrap center comprobar">
+            <label for="word" class="w90">Escribe una palabra de cinco letras</label>
+            <br>
+            <input type="text" id="word" name="word" class="w90" maxlength="5">
+            <br>
+            <button id="check" class="w90">Comprobar</button>
+        </section>
+
+        <!-- Mensajes -->
+        <section class="w100 info" id="Mensaje">
+            <p class="w90" id="info">Intento: 0/5</p>
+        </section>
+
+        <!-- Resultados -->
+        <section id="result" class="flex wrap center">
+        </section>
+    </main>
+    <script src="wordle.js"></script>
+</body>
+</html>
