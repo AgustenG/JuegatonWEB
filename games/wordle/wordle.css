@@ -1,3 +1,4 @@
+/* Estilo del main */
 main {
     padding: 0;
     margin: 0;
@@ -6,6 +7,7 @@ main {
     margin: 0 auto;
 }
 
+/* Clases atomicas */
 .flex {
     display: flex;
 }
@@ -45,8 +47,8 @@ main {
     align-items: center;
 }
 
-.comprobar,
-.info {
+/* Estilo de otras clases */
+.comprobar, .info {
     border: 1px solid #BF9E14;
     border-radius: 5px;
     font-size: 1.2em;
@@ -54,8 +56,7 @@ main {
     margin-top: 15px;
 }
 
-.comprobar *,
-.info * {
+.comprobar *, .info * {
     margin: 10px;
 }
 
@@ -65,6 +66,23 @@ main {
     color: white;
 }
 
+.celResult {
+    height: 82px;
+    z-index: 1;
+    width: 90%;
+    font-weight: bold;
+    position: relative;
+    margin: 5px auto;
+    background-color: #BABABA;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+    font-size: 2.25em;
+    align-items: center;
+}
+
+
+/* Estilo de HTML tags */
 label {
     color: #7E43AB;
     font-weight: bold;
@@ -82,8 +100,7 @@ input {
     border-radius: 5px 5px 0 0;
 }
 
-input:focus,
-input:hover {
+input:focus, input:hover {
     background-color: #BABABA;
 }
 
@@ -98,23 +115,11 @@ button {
     margin-bottom: 10px;
 }
 
-button:hover,
-button:focus {
+button:hover, button:focus {
     background-color: #E9C533;
     cursor: pointer;
 }
 
-.celResult {
-    height: 82px;
-    z-index: 1;
-    width: 90%;
-    font-weight: bold;
-    position: relative;
-    margin: 5px auto;
-    background-color: #BABABA;
-    border-radius: 10px;
-    text-align: center;
-    justify-content: center;
-    font-size: 2.25em;
-    align-items: center;
+h1{
+    color: #9C67C5;
 }
