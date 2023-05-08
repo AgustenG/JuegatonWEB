@@ -9,7 +9,7 @@ palabraSecreta();
 
 // Funcion que elige una palabra random del documento JSON y la guarda en caracteres separados
 function palabraSecreta() {
-    fetch("https://localhost:7104/Wordle")
+    fetch("https://apipost.azurewebsites.net/wordle")
         .then((response) => response.json())
         .then((json) => {
             const randomIndex = Math.floor(Math.random() * json.length);
