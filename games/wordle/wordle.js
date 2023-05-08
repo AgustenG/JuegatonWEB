@@ -16,7 +16,7 @@ function palabraSecreta() {
             if (json[randomIndex].palabra_Id === randomIndex + 1) {
                 const palabraElegida = json[randomIndex].palabra;
                 secret.push(...palabraElegida.split(''));
-                console.log(`Tu palabra es: ${secret}`);
+                // console.log(`Tu palabra es: ${secret}`);
             } else {
                 console.log(`No se encontró ninguna palabra con el índice ${randomIndex + 1}`);
             }
