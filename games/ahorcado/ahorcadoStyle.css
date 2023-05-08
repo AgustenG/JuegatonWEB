@@ -1,0 +1,69 @@
+/* Estilo del main */
+main {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato';
+    font-size:28px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Clases atomicas */
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.center {
+    justify-content: center;
+}
+.messoge {
+    font-size: 28px;
+    color: #7E43AB;
+}
+.ans {
+    font-size: 40px;
+    background-color: #7E43AB;
+    color: white;
+}
+
+.w20 {
+    width: 20%;
+}
+
+.w90 {
+    width: 90%;
+}
+
+.w100 {
+    width: 100%;
+}
+
+button {
+    width: 20%;
+    padding: 15px;
+    background-color: #BF9E14;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.17em;
+    margin-bottom: 10px;
+}
+
+button:hover, button:focus {
+    background-color: #E9C533;
+    cursor: pointer;
+}
+label {
+    color: #7E43AB;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #9C67C5;
+    font-size: 48px;
+}

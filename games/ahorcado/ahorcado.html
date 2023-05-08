@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juegatón</title>
+    <link rel="stylesheet" href="ahorcadoStyle.css" />
+    <script src="https://kit.fontawesome.com/d20c834341.js"
+            crossorigin="anonymous"></script>
+</head>
 
+  <body>
+      
+      <h1 class="flex center">Ahorcado</h1>
+
+      <article id="Ahorcado">
+          <div class="img flex center" id="imagenSop">
+
+          </div>
+          <div class="wordText flex center" id="wordSop">
+
+          </div>
+          <div class="helpText flex center" id="messageSop">
+
+          </div>
+          <div class="interaction1 flex center">
+              <label class="buttonSel flex center" for="name">Respuesta (letra) </label>
+              <input class="buttonAns" type="text" id="letter" name="hangletter"> <br>
+          </div>
+          <div class="interaction2 flex center">
+              <button class="buttonCli flex center" type="button" id="answerLetra">Probar</button> <br>
+          </div>
+          <div class="interaction3 flex center">
+              <label class="buttonSel" for="name">Respuesta (palabra) </label>
+              <input class="buttonAns" type="text" id="word" name="hangword"> <br>
+          </div>
+          <div class="interaction4 flex center">
+              <button class="buttonCli" type="button" id="answerPalabra">Responder</button> <br>
+          </div>
+      </article>
+      <script src="ahorcado.js"></script>
+  </body>
+</html>
