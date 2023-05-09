@@ -57,10 +57,7 @@ function Registrarse(){
      .then((json)=> {
         (this.posts = json)
         message2.innerText = 'Usuario registrado correctamente';
-        localStorage.setItem("Jugador",this.posts);
-
-
-
+        localStorage.setItem("Jugador",nickname);
         PaginaPrincipal();
      }, )
      .catch((error) =>  message.innerText = 'Ha habido un error, vuelve a intentarlo');

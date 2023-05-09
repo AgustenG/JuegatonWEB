@@ -9,9 +9,6 @@
 //si el jugador pone una letra que ya tiene el bool en true, le avisa (no cuenta como fallo)
 
 
-
-
-
 //get word from database
 /*
 SELECT *
@@ -26,15 +23,15 @@ var len = 5;
 fetch(`https://apipost.azurewebsites.net/ahorcado`)
     .then((response) => response.json())
     .then((json) => {
-        (palabraCorrecta = json[0].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length), console.log(palabraCorrecta);//de momento usamos solo una
-        //(palabraCorrecta = json[Math.floor(Math.random() * 100)].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length), console.log(palabraCorrecta);
+        // (palabraCorrecta = json[0].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length), console.log(palabraCorrecta);//de momento usamos solo una
+        (palabraCorrecta = json[Math.floor(Math.random() * json.length)].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length);
 
     },)
     .catch((error) => console.log("fallo de conexion."));
 
 
 //set in-game variables
-var score = 0;
+var score = 100;
 var intentos = 7;
 
 var letrasUsadas = "";
@@ -94,7 +91,6 @@ letraBoton.addEventListener("click", function () {
             if (letter == dividida[i]) {
                 document.getElementById("message").innerHTML = "has acertado, esta letra está en la palabra, te quedan " + intentos + " intentos";
                 flag = true;
-                score++;
             }
         }
         //si no encuentra la letra avisa y quita una vida
@@ -104,6 +100,10 @@ letraBoton.addEventListener("click", function () {
             let res = 8 - intentos;
             document.getElementById("horca").src = "./../../ahorcado img/ahorcado" + res + ".jpg";
             document.getElementById("message").innerHTML = "has fallado, esta letra no está en la palabra, te quedan " + intentos + " intentos";
+            score-=10;
+            if(intentos == 0){
+                score = 0;
+            }
         }
         let display = "";
         let flags = true;
@@ -133,10 +133,9 @@ letraBoton.addEventListener("click", function () {
         //si no quedan letras por descubrir termina la partida
         if (flags) {
             document.getElementById("message").innerHTML = "has acertado, has completado la palabra";
-            score += intentos;
             intentos = 0;
             //you won send data
-            console.log(score);
+            returnPrincipal();
         }
         //si no quedan intentos también termina la partida
         else if (intentos == 0) {
@@ -144,11 +143,62 @@ letraBoton.addEventListener("click", function () {
             intentos = 0;
             document.getElementById("palabra").innerHTML = "||" + palabraCorrecta + "||";
             //you lost send data
-            console.log(score);
+            returnPrincipal();
         }
     }
 });
 
+function returnPrincipal(){
+    document.getElementById("letterAnswer").style.display = "none";
+    document.getElementById("answerLetra").style.display = "none";
+    document.getElementById("wordAnswer").style.display = "none";
+    document.getElementById("answerPalabra").style.display = "none";
+    document.getElementById("return").style.display = "block";
+
+    console.log(score);
+}
+
+document.getElementById("return").addEventListener("click", function (event){
+    event.preventDefault();
+
+    localStorage.setItem('puntos', score);  
+    let actualizarPuntos = localStorage.getItem("puntos");
+    let nickName = localStorage.getItem("Jugador");
+
+    myWindow = window.open("","","width=50, height=60");
+    myWindow.document.write("<p>Volviendo a la página principal</p>");
+    updated(nickName, actualizarPuntos);
+     setTimeout(function(){
+        myWindow.close(); 
+        localStorage.setItem('Jugado',true,);
+         window.location.href = "../../PaginaPrincipal/principal.html";
+     },2000)
+    localStorage.removeItem("puntos");
+})
+
+function updated(nickName,actualizarPuntos) {
+    var puntosFinales;
+    fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
+    .then((response) => response.json())
+    .then((json) => {
+        (this.posts = json)
+        puntosFinales = parseInt(this.posts.puntuacion) + parseInt(actualizarPuntos);
+        let url  = `https://apipost.azurewebsites.net/Jugador/${puntosFinales} ${nickName}`;
+        let put ={
+            method:'PUT',
+            // body: JSON.stringify(text),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        }
+        fetch(url, put)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+    }, )
+    .catch((error) =>  console.log(error));
+   
+}   
 
 //este botón permite al jugador escribir toda la palabra
 var palabraBoton = document.getElementById("answerPalabra");
@@ -167,12 +217,9 @@ palabraBoton.addEventListener("click", function () {
                         flagm = true;
                     }
                 }
-                if (!flagm) {
-                    score += 5;
-                }
-                score += intentos;
                 intentos = 0;
                 //you won send data
+                returnPrincipal();
             }
         }
         //si falla pierde la partida
@@ -182,10 +229,8 @@ palabraBoton.addEventListener("click", function () {
             document.getElementById("horca").src = "./../../ahorcado img/ahorcado8.jpg";
             intentos = 0;
             //you lost send data
+            returnPrincipal();
         }
-        score *= 10;
-        //inflamos la score para que sea mas parecida a la del Wordle, maximo 420
-        console.log(score);
     }
 });
 //Los dos botones dejan de funcionar cuando no quedan intentos

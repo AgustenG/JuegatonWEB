@@ -13,14 +13,12 @@ palabraSecreta();
 // Funcion que recibe un json de la API y elige una palabra random de ese JSON y la guarda en caracteres separados en la array secret
 function palabraSecreta() {
     fetch("https://apipost.azurewebsites.net/wordle")
-        // fetch("https://localhost:7104/Wordle")
         .then((response) => response.json())
         .then((json) => {
             const randomIndex = Math.floor(Math.random() * json.length);
             if (json[randomIndex].palabra_Id === randomIndex + 1) {
                 const palabraElegida = json[randomIndex].palabra;
                 secret.push(...palabraElegida.split(''));
-                console.log(`Tu palabra es: ${secret}`);
             } else {
                 console.log(`No se encontró ninguna palabra con el índice ${randomIndex + 1}`);
             }
