@@ -42,7 +42,7 @@ backPage.addEventListener("click", function(event) {
     event.preventDefault();
     console.log(puntos);
     localStorage.setItem('puntos', puntos);
-    window.location.href = "../../principal.html";
+    window.location.href = "../../PaginaPrincipal/principal.html";
 })
 
 /*  

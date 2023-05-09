@@ -26,7 +26,7 @@ const message = document.getElementById('login-message');
 
 // Procedimiento que te envia al juego
 function PaginaPrincipal(){
-    window.location.href = "./principal.html"; 
+    window.location.href = "../PaginaPrincipal/principal.html"; 
 }
 
 function Registrarse(){

@@ -6,7 +6,7 @@
 
 body {
   /*background: url('https://steamuserimages-a.akamaihd.net/ugc/1678120729579339650/40A46978EF29C7099912D8CA459BBC9FAC764F2E/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false') no-repeat;*/
-  background: url('wpp2.jpg') no-repeat;
+  background: url('/wpp2.jpg') no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
