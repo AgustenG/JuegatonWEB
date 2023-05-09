@@ -26,7 +26,7 @@ var len = 5;
 fetch(`https://apipost.azurewebsites.net/ahorcado`)
 .then((response) => response.json())
 .then((json) => {
-    (palabraCorrecta = json[1].palabra, dividida = palabraCorrecta.split(''),len=palabraCorrecta.length);
+    (palabraCorrecta = json[0].palabra, dividida = palabraCorrecta.split(''),len=palabraCorrecta.length);
 }, )
 .catch((error) => console.log("fallo de conexion."));
 
@@ -142,6 +142,8 @@ palabraBoton.addEventListener("click", function () {
             document.getElementById("message").innerHTML = "has acertado, la palabra es correcta";
             for(let i=0;i<abiertas.length;i++) score+=5;
             intentos = 0;
+            
+
             //you won send data
         }
         else {
