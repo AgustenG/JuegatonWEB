@@ -19,21 +19,23 @@ FROM Ahorcado
 ORDER BY random()
 LIMIT 1;*/
 
-var palabraCorrecta = "t";//get from database
+var palabraCorrecta = "t";//obtenemos palabra aleatoria
 var dividida = palabraCorrecta.split('');
-var temp="____________________________"
+var temp = "____________________________"
 var len = 5;
 fetch(`https://apipost.azurewebsites.net/ahorcado`)
-.then((response) => response.json())
-.then((json) => {
-    (palabraCorrecta = json[0].palabra, dividida = palabraCorrecta.split(''),len=palabraCorrecta.length);
-}, )
-.catch((error) => console.log("fallo de conexion."));
+    .then((response) => response.json())
+    .then((json) => {
+        (palabraCorrecta = json[0].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length), console.log(palabraCorrecta);//de momento usamos solo una
+        //(palabraCorrecta = json[Math.floor(Math.random() * 100)].palabra, dividida = palabraCorrecta.split(''), len = palabraCorrecta.length), console.log(palabraCorrecta);
+
+    },)
+    .catch((error) => console.log("fallo de conexion."));
 
 
 //set in-game variables
-var score=0;
-var intentos=7;
+var score = 0;
+var intentos = 7;
 
 var letrasUsadas = "";
 var setImg = document.getElementById("imagenSop");
@@ -43,66 +45,75 @@ img.style.height = '450px';
 img.style.width = '450px';
 //img.style.objectPosition = '15% 15%';
 //img.style.objectPosition = '15% 15%';
+
+//preparamos el escenario con la imagen y los mensajes base
 img.src = "./../../ahorcado img/ahorcado1.jpg";
 setImg.appendChild(img);
 var setMes = document.getElementById("messageSop");
 var setWor = document.getElementById("wordSop");
+
+//preparamos la palabra vacía
 var wor = document.createElement("p");
 wor.setAttribute("id", "palabra");
 wor.setAttribute("class", "ans")
 for (let i = 0; i < 2; i++)
     wor.innerHTML += "|";
-for (let i = 0; i < len;i++)
+for (let i = 0; i < len; i++)
     wor.innerHTML += temp[i];
 for (let i = 0; i < 2; i++)
     wor.innerHTML += "|";
 setWor.appendChild(wor);
+
+//preparamos el mensaje de bienvenida
 var mes = document.createElement("p");
 mes.setAttribute("id", "message")
-mes.setAttribute("class","messoge")
+mes.setAttribute("class", "messoge")
 mes.innerHTML = "Bienvenido al ahorcado. Tienes 7 intentos";
 setMes.appendChild(mes);
 
-function CompruebaLetra() {
-    
-}
-
+//en este boton hacemos que el jugador introduzca una letra
 var letraBoton = document.getElementById("answerLetra");
 letraBoton.addEventListener("click", function () {
-    
-    if(intentos>0){
-        var letter = document.getElementById("letter").value;
+
+    if (intentos > 0) {
+        var temp = document.getElementById("letter").value;
+        var letter = temp[0];//aquí nos aseguramos que solo entra un char
+
+        //detecta si ya se ha introducido la letra
         for (let i = 0; i < letrasUsadas.length; i++) {
             if (letrasUsadas[i] == letter) {
                 document.getElementById("message").innerHTML = "ya has usado esta letra, te quedan " + intentos + " intentos";
                 return;
             }
         }
+        //en caso contrario la añade a la lista de usadas
         letrasUsadas += letter;
         let flag = false;
         for (let i = 0; i < dividida.length; i++) {
-            
+            //mira si la letra está en la palabra y da puntación si la encuentra
             if (letter == dividida[i]) {
-                    document.getElementById("message").innerHTML = "has acertado, esta letra está en la palabra, te quedan " + intentos + " intentos";
-                    flag = true;
-                    score++;
+                document.getElementById("message").innerHTML = "has acertado, esta letra está en la palabra, te quedan " + intentos + " intentos";
+                flag = true;
+                score++;
             }
-
         }
+        //si no encuentra la letra avisa y quita una vida
         if (!flag) {
 
             intentos--;
             let res = 8 - intentos;
             document.getElementById("horca").src = "./../../ahorcado img/ahorcado" + res + ".jpg";
-            document.getElementById("message").innerHTML = "has fallado, esta letra no está en la palabra, te quedan "+intentos+" intentos";
+            document.getElementById("message").innerHTML = "has fallado, esta letra no está en la palabra, te quedan " + intentos + " intentos";
         }
-        let display="";
+        let display = "";
         let flags = true;
 
 
         for (let i = 0; i < 2; i++)
-            display+= "|";
+            display += "|";
         for (let i = 0; i < dividida.length; i++) {
+            //este for revisa si la letra ha sido descubierta y la imprime
+            //si no está descubierta escribe un "_" en su lugar
             let flagm = false;
             for (let j = 0; j < letrasUsadas.length; j++) {
                 if (letrasUsadas[j] == dividida[i]) {
@@ -112,40 +123,59 @@ letraBoton.addEventListener("click", function () {
             if (flagm) {
                 display += dividida[i];
             }
-            else {display += "_"; flags=false}
+            else { display += "_"; flags = false }//además, si hay alguna letra no descubierta, bloquea el bool que termina la partida
         }
         for (let i = 0; i < 2; i++)
             display += "|";
 
-        //alert(dividida);
         document.getElementById("palabra").innerHTML = display;
-        if(flags){
+
+        //si no quedan letras por descubrir termina la partida
+        if (flags) {
             document.getElementById("message").innerHTML = "has acertado, has completado la palabra";
-            intentos=0;
+            score += intentos;
+            intentos = 0;
             //you won send data
+            console.log(score);
         }
-        else if(intentos==0){
+        //si no quedan intentos también termina la partida
+        else if (intentos == 0) {
             document.getElementById("message").innerHTML = "has fallado, te has quedado sin intentos";
             intentos = 0;
-            document.getElementById("palabra").innerHTML = "||"+palabraCorrecta+"||";
+            document.getElementById("palabra").innerHTML = "||" + palabraCorrecta + "||";
             //you lost send data
+            console.log(score);
         }
     }
 });
 
+
+//este botón permite al jugador escribir toda la palabra
 var palabraBoton = document.getElementById("answerPalabra");
 palabraBoton.addEventListener("click", function () {
-    if(intentos>0){
+    if (intentos > 0) {
         var word = document.getElementById("word").value;
+
+        //si el jugador acierta automaticamente gana y recibe puntos de bonus por cada letra sin descubrir
         if (word == palabraCorrecta) {
             document.getElementById("palabra").innerHTML = "||" + palabraCorrecta + "||";
             document.getElementById("message").innerHTML = "has acertado, la palabra es correcta";
-            for(let i=0;i<abiertas.length;i++) score+=5;
-            intentos = 0;
-            
-
-            //you won send data
+            for (let i = 0; i < dividida.length; i++) {
+                let flagm = false;
+                for (let j = 0; j < letrasUsadas.length; j++) {
+                    if (letrasUsadas[j] == dividida[i]) {
+                        flagm = true;
+                    }
+                }
+                if (!flagm) {
+                    score += 5;
+                }
+                score += intentos;
+                intentos = 0;
+                //you won send data
+            }
         }
+        //si falla pierde la partida
         else {
             document.getElementById("palabra").innerHTML = "||" + palabraCorrecta + "||";
             document.getElementById("message").innerHTML = "has fallado, la palabra es incorrecta";
@@ -153,5 +183,10 @@ palabraBoton.addEventListener("click", function () {
             intentos = 0;
             //you lost send data
         }
-    }   
+        score *= 10;
+        //inflamos la score para que sea mas parecida a la del Wordle, maximo 420
+        console.log(score);
+    }
 });
+//Los dos botones dejan de funcionar cuando no quedan intentos
+         
