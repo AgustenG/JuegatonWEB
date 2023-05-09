@@ -6,7 +6,7 @@
 
 body{
 
-    background: url('wpp2.jpg') no-repeat;
+    background: url('/wpp2.jpg') no-repeat;
     background-size: cover;
     min-height: 100vh;
 }
@@ -37,6 +37,17 @@ span{
     border-radius: 50%;
     background-color: #FFE57C;
     text-align: center;
+    cursor: pointer;
+    transition: 200ms;
+}
+.circle:hover{
+    transition: 200ms;
+    height: 80px;
+    width: 80px;
+    -webkit-transition: 200ms;
+    -moz-transition: 200ms;
+    -ms-transition: 200ms;
+    -o-transition: 200ms;
 }
 
 .levels{
@@ -52,16 +63,29 @@ table{
     margin-top: 10px;
     text-align: center;
     background-color: #688CC3;
-    border-radius: 10%;
     width: 100%;
-
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    overflow: hidden;
+    background-color: transparent;
 }
+
 
 th{
-    background-color: black;
+    background-color: transparent;
     color: #ffde59;
 }
-
+thead {
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+tbody{
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 tr{
     color: #ffde59;
 
