@@ -5,7 +5,7 @@ var intentoActual = 0;
 var comprobar = document.getElementById("check");
 const wordUser = document.querySelector("#word");
 var backPage = document.getElementById("return");
-let puntos = 0;
+let puntos = 100;
 
 
 palabraSecreta();
@@ -40,10 +40,51 @@ wordUser.addEventListener("keydown", function(event) {
 // Boton para volver a la pagina principal y mandar la puntuacion
 backPage.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log(puntos);
-    localStorage.setItem('puntos', puntos);
-    window.location.href = "../../PaginaPrincipal/principal.html";
+
+    localStorage.setItem('puntos', puntos);  
+    let actualizarPuntos = localStorage.getItem("puntos");
+    let nickName = localStorage.getItem("Jugador");
+
+    myWindow = window.open("","","width=50, height=60");
+    myWindow.document.write("<p>Volviendo a la página principal</p>");
+    updated(nickName, actualizarPuntos);
+     setTimeout(function(){
+        myWindow.close(); 
+        localStorage.setItem('Jugado',true,);
+         window.location.href = "../../PaginaPrincipal/principal.html";
+     },2000)
+    localStorage.removeItem("puntos");
+
+
+  
 })
+
+
+function updated(nickName,actualizarPuntos) {
+    var puntosFinales;
+    fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
+    .then((response) => response.json())
+    .then((json) => {
+        (this.posts = json)
+        puntosFinales = parseInt(this.posts.puntuacion) + parseInt(actualizarPuntos);
+        let url  = `https://apipost.azurewebsites.net/Jugador/${puntosFinales} ${nickName}`;
+        let put ={
+            method:'PUT',
+            // body: JSON.stringify(text),
+            headers: {
+                'Content-Type':'application/json'
+            }
+        }
+        fetch(url, put)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+    }, )
+    .catch((error) =>  console.log(error));
+   
+}   
+
+
 
 /*  
     Cuando el usuario escriba su palabra y le de al boton se realizara una serie de comprovaciones:
@@ -52,7 +93,7 @@ backPage.addEventListener("click", function(event) {
 */
 comprobar.addEventListener("click", function() {
     var wordUser = document.querySelector("#word");
-    var charSplit = String(wordUser.value).split("");
+    var charSplit = String(wordUser.value.toLowerCase()).split("");
     var msg = document.querySelector("#info");
 
     IsCorrect(charSplit, secret, msg);
@@ -100,20 +141,20 @@ function showAnswer(charSplit, secret) {
         divAnswer[i].textContent = secret[i].toUpperCase();
     }
 
-    if (intentoActual == 0) {
-        puntos = 100;
-    } else if (intentoActual < intentoMax) {
+    if (intentoActual == 0) puntos = 100;
+    else if (intentoActual < intentoMax) {
         let i = 0;
         do {
             puntos -= 10;
             i++;
         } while (i != intentoActual);
-    } else {
-        puntos = 0;
-    }
+    } else puntos = 0;
+
+
 
     backPage.style.display = "block";
     comprobar.style.display = "none";
+    wordUser.disabled = true;
 }
 
 // Funcion que comprueba si cada letra coincide con la letra de la palabra secreta o no.

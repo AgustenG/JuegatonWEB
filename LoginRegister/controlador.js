@@ -16,6 +16,7 @@ const message = document.getElementById('login-message');
         (this.posts = json)
         if(document.getElementById("passwd").value==this.posts.password){
             alert("Te has logeado correctamente");
+            localStorage.setItem("Jugador",nickName);
             PaginaPrincipal();
         } else{
             message.innerText = 'Contraseña incorrecta. Vuelve a intentarlo.';
@@ -56,6 +57,11 @@ function Registrarse(){
      .then((json)=> {
         (this.posts = json)
         message2.innerText = 'Usuario registrado correctamente';
+        localStorage.setItem("Jugador",this.posts);
+
+
+
+        PaginaPrincipal();
      }, )
      .catch((error) =>  message.innerText = 'Ha habido un error, vuelve a intentarlo');
     

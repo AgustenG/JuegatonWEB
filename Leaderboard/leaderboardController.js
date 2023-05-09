@@ -13,7 +13,6 @@ function llenarTabla(){
     var table = document.getElementById("leaderboard"); 
     allPlayers.forEach(player => {
         var fila = document.createElement("tr");
-        console.log(this.Jugadores);
         table.appendChild(fila);
         for (const key in player) {
             if (key =="pais"){
@@ -58,7 +57,6 @@ function sortTable() {
       //start by saying: no switching is done:
       switching = false;
       rows = table.rows;
-      console.log(rows);
       /*Loop through all table rows (except the
       first, which contains table headers):*/
       for (i = 1; i < (rows.length - 1); i++) {

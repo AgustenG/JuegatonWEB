@@ -187,3 +187,8 @@ header {
     -ms-transition: 200ms;
     -o-transition: 200ms;
   }
+
+button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
