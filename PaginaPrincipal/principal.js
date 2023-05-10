@@ -17,6 +17,7 @@ buton.addEventListener("click", function () {
       break;
       case 3:
         setTimeout(function () {
+          window.location.href = "../games/patoRunner/patorunner.html";
           window.location.href = "../games/patoRunner/patoRunner.html";
         }, 1000);
         break;
@@ -29,6 +30,6 @@ buton.addEventListener("click", function () {
 });
 
 function newRandom() {
-  let rnd = Math.floor(Math.random() * 4) + 1;
+  let rnd = Math.floor(Math.random() * 3) + 1;
   return rnd;
 }

@@ -31,14 +31,13 @@ backPage.addEventListener("click", function(event) {
 
     localStorage.setItem('puntos', juegatonScore);  
     let actualizarPuntos = localStorage.getItem("puntos");
-    let nickName = localStorage.getItem("Jugador");
+    let nickName = localStorage.getItem("jugador");
 
     myWindow = window.open("","","width=50, height=60");
     myWindow.document.write("<p>Volviendo a la página principal</p>");
     updated(nickName, actualizarPuntos);
      setTimeout(function(){
-        myWindow.close(); 
-        localStorage.setItem('Jugado',true,);
+        myWindow.close();
          window.location.href = "../../PaginaPrincipal/principal.html";
      },2000)
     localStorage.removeItem("puntos");
