@@ -1,5 +1,5 @@
 let buton = document.getElementById("boton");
-var count = 1;
+
 rnd = newRandom();
 
 // localStorage.setItem(`boton${count++}`, JSON.stringify(object));
@@ -20,6 +20,5 @@ buton.addEventListener("click", function () {
 
 function newRandom() {
   let rnd = Math.floor(Math.random() * 2) + 1;
-  console.log(rnd);
   return rnd;
 }

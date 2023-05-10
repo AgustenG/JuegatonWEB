@@ -15,8 +15,8 @@ const message = document.getElementById('login-message');
     .then((json) => {
         (this.posts = json)
         if(document.getElementById("passwd").value==this.posts.password){
-            alert("Te has logeado correctamente");
-            localStorage.setItem("Jugador",nickName);
+            localStorage.setItem("jugador",nickName);
+            localStorage.setItem("contraseña",this.posts.password);
             PaginaPrincipal();
         } else{
             message.innerText = 'Contraseña incorrecta. Vuelve a intentarlo.';
@@ -57,13 +57,29 @@ function Registrarse(){
      .then((json)=> {
         (this.posts = json)
         message2.innerText = 'Usuario registrado correctamente';
-        localStorage.setItem("Jugador",nickname);
+        localStorage.setItem("jugador",nickname);
+        localStorage.setItem("contraseña",passwd);
         PaginaPrincipal();
      }, )
      .catch((error) =>  message.innerText = 'Ha habido un error, vuelve a intentarlo');
     
 }
+function CheckLogin(){
 
+    nickName = localStorage.getItem("jugador");
+    if (localStorage.getItem("jugador")!=null){
+        fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
+        .then((response) => response.json())
+        .then((json) => {
+          if(localStorage.getItem("contraseña")==json.password){
+            PaginaPrincipal();
+          } })
+        .catch((error) =>  console.log(error));
+    }
+
+
+  
+}
 
 
 

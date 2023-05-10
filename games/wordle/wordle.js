@@ -19,6 +19,7 @@ function palabraSecreta() {
             if (json[randomIndex].palabra_Id === randomIndex + 1) {
                 const palabraElegida = json[randomIndex].palabra;
                 secret.push(...palabraElegida.split(''));
+                console.log(`Tu palabra es: ${secret}`);
             } else {
                 console.log(`No se encontró ninguna palabra con el índice ${randomIndex + 1}`);
             }
@@ -123,7 +124,7 @@ function IsCorrect(charSplit, secret, msg) {
         } else {
             if (intentoActual < intentoMax) {
                 intentoActual++;
-                msg.textContent = "Intento: " + (intentoActual) + "/" + intentoMax;
+                msg.textContent = "Intento: " + (intentoActual) + "/" + parseInt(intentoMax+1);
             } else {
                 msg.textContent = "Has perdido. La respuesta correcta aparecera arriba: ";
                 showAnswer(charSplit, secret);

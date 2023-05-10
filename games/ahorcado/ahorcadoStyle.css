@@ -8,6 +8,11 @@ main {
     margin: 0 auto;
 }
 
+body {
+    background: url(../../wpp2.jpg) no-repeat;
+    font-family: 'Braah One', sans-serif;
+    color :#ffde59;
+}
 /* Clases atomicas */
 .flex {
     display: flex;
@@ -22,11 +27,11 @@ main {
 }
 .messoge {
     font-size: 28px;
-    color: #7E43AB;
+    color: #ffde59;
 }
 .ans {
     font-size: 40px;
-    background-color: #7E43AB;
+    background-color: #ffde59;
     color: white;
 }
 
@@ -42,6 +47,66 @@ main {
     width: 100%;
 }
 
+img {
+    height : 450px;
+    width:450px;
+}
+
+.letra {
+    border: 4px solid black;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .5);
+    margin:5px;
+    height: 52px;
+    width: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interaction1,.interaction2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+input {
+    font-size: 1.3em;
+    padding: 0.5em;
+}
+.interaction1 input {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border: 4px solid #ffde59;
+    border-radius: 20%;
+    color: #ffde59;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+}
+.interaction2 input {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border: 4px solid #ffde59;
+    color: #ffde59;
+}
+
+input::placeholder {
+    color:#456CA9;
+}
+
 button {
     width: 20%;
     padding: 15px;
@@ -50,7 +115,6 @@ button {
     border: none;
     border-radius: 5px;
     font-size: 1.17em;
-    margin-bottom: 10px;
 }
 
 button:hover, button:focus {
@@ -58,12 +122,12 @@ button:hover, button:focus {
     cursor: pointer;
 }
 label {
-    color: #7E43AB;
+    color: #ffde59;
     font-size: 23px;
     font-weight: bold;
 }
 
 h1 {
-    color: #9C67C5;
+    color: #ffde59;
     font-size: 48px;
 }
