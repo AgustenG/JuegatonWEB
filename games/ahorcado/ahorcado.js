@@ -5,8 +5,8 @@ var score = 100;
 fetch(`https://apipost.azurewebsites.net/ahorcado`)
   .then((response) => response.json())
   .then((json) => {
-    (palabraCorrecta = json[Math.floor(Math.random() * json.length)].palabra),
-    console.log(palabraCorrecta);
+    (palabraCorrecta = json[Math.floor(Math.random() * json.length)].palabra)
+
    //preparamos el escenario con la imagen y los mensajes base
     var setMes = document.getElementById("messageSop");
     var mes = document.createElement("p");
@@ -18,7 +18,7 @@ fetch(`https://apipost.azurewebsites.net/ahorcado`)
     var imgDiv = document.getElementById("divImg");
     var img = document.createElement("img");
     img.setAttribute("id", "horca");
-    img.src = "./../../ahorcado img/ahorcado1.png";
+    img.src = "./../../Resources/ahorcado/ahorcado1.png";
     imgDiv.appendChild(img);
  
    //Mostramos los huecos que tendrá la palabra
@@ -73,7 +73,7 @@ function checkLetters() {
       if (!flag) {
         intentos--;
         let res = 8 - intentos;
-        document.getElementById("horca").src ="./../../ahorcado img/ahorcado" + res + ".png";
+        document.getElementById("horca").src ="./../../Resources/ahorcado/ahorcado" + res + ".png";
         document.getElementById("message").textContent = intentos + " intentos";
         score -= 10;
         if (intentos == 0) score = 0;
@@ -107,14 +107,14 @@ function checkLetters() {
       var word = document.getElementById("word").value;
       //si el jugador acierta automaticamente gana y recibe puntos de bonus por cada letra sin descubrir
       if (word == palabraCorrecta) {
-        document.getElementById("message").innerHTML = "HAS GANADO!";
+        document.getElementById("message").textContent = "HAS GANADO!";
           returnPrincipal();
       }
       //si falla pierde la partida
       else {
         document.getElementById("message").innerHTML =
           "Esa no es la palabra!";
-        document.getElementById("horca").src = "./../../ahorcado img/ahorcado8.png";
+        document.getElementById("horca").src = "./../../Resources/ahorcado/ahorcado8.png";
         intentos = 0;
         //you lost send data
         returnPrincipal();
@@ -131,8 +131,6 @@ function returnPrincipal() {
     letras.forEach((div) => {
      div.textContent = palabraCorrecta[i++].toUpperCase();
   });
-  
-  console.log(score);
 }
 function updated(nickName, actualizarPuntos) {
   var puntosFinales;

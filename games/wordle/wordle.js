@@ -19,7 +19,6 @@ function palabraSecreta() {
             if (json[randomIndex].palabra_Id === randomIndex + 1) {
                 const palabraElegida = json[randomIndex].palabra;
                 secret.push(...palabraElegida.split(''));
-                console.log(`Tu palabra es: ${secret}`);
             } else {
                 console.log(`No se encontró ninguna palabra con el índice ${randomIndex + 1}`);
             }
@@ -92,7 +91,6 @@ comprobar.addEventListener("click", function() {
     var wordUser = document.querySelector("#word");
     var charSplit = String(wordUser.value.toLowerCase()).split("");
     var msg = document.querySelector("#info");
-
     IsCorrect(charSplit, secret, msg);
     wordUser.value = "";
 

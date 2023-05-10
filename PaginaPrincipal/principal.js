@@ -33,3 +33,13 @@ function newRandom() {
   let rnd = Math.floor(Math.random() * 3) + 1;
   return rnd;
 }
+
+function checkUser(){
+
+  var nickName = window.localStorage.getItem("jugador");
+  if (nickName == null || nickName == undefined) {
+    window.location.href = "../LoginRegister/index.html"; 
+  }
+  
+
+}
