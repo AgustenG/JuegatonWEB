@@ -6,7 +6,7 @@ fetch(`https://apipost.azurewebsites.net/Jugador`)
             if(jugador.puntuacion > 0) allPlayers.push(jugador);
         });
         llenarTabla();
-        sortTable(); // Ordenamos por defecto la tabla por puntuación
+        sortTable(3); // Ordenamos por defecto la tabla por puntuación
     }, )
 
 function llenarTabla(){
@@ -46,7 +46,7 @@ function llenarTabla(){
     });
 }
 
-function sortTable() {
+function sortTable(index) {
     var table, rows, switching, i, x, y, shouldSwitch,count=0;
 
     table = document.getElementById("myTable");
@@ -64,14 +64,33 @@ function sortTable() {
         shouldSwitch = false;
         /*Get the two elements you want to compare,
         one from current row and one from the next:*/
-        x = rows[i].getElementsByTagName("TD")[3];
-        y = rows[i + 1].getElementsByTagName("TD")[3];
-        //check if the two rows should switch place:
-        if (Number(x.innerHTML) < Number(y.innerHTML)) {
-          //if so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
+        if(index==3){
+            x = rows[i].getElementsByTagName("TD")[3];
+            y = rows[i + 1].getElementsByTagName("TD")[3];
+            //check if the two rows should switch place:
+            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+            }
+
+            for (i = 1; i < (rows.length); i++) { 
+        
+                x = rows[i].getElementsByTagName("TD")[4];
+                x.textContent = i;
+            }
         }
+        else if(index==1 || index==0){
+            x = rows[i].getElementsByTagName("TD")[index];
+            y = rows[i + 1].getElementsByTagName("TD")[index];
+            //check if the two rows should switch place:
+            if (x.innerHTML > y.innerHTML) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+            }
+        }
+        // 
       }
       if (shouldSwitch) {
         /*If a switch has been marked, make the switch
@@ -80,11 +99,5 @@ function sortTable() {
         switching = true;
       }
     }
-    for (i = 1; i < (rows.length); i++) { 
-        
-        x = rows[i].getElementsByTagName("TD")[4];
-        x.textContent = i;
-    }
-
-
+ 
   }
