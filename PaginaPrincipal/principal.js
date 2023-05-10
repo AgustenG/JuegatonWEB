@@ -18,6 +18,12 @@ buton.addEventListener("click", function () {
       case 3:
         setTimeout(function () {
           window.location.href = "../games/patoRunner/patorunner.html";
+          window.location.href = "../games/patoRunner/patoRunner.html";
+        }, 1000);
+        break;
+      case 4:
+        setTimeout(function () {
+          window.location.href = "../games/bulletHell/bulletHell.html";
         }, 1000);
         break;
   }
