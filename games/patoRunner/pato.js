@@ -28,9 +28,9 @@ function JuegatonUpdate(){
 // Boton para volver a la pagina principal y mandar la puntuacion
 backPage.addEventListener("click", function(event) {
     event.preventDefault();
-
-
-
+    localStorage.setItem('puntos', juegatonScore);  
+    let actualizarPuntos = localStorage.getItem("puntos");
+    let nickName = localStorage.getItem("jugador");
     updated(nickName, actualizarPuntos);
      setTimeout(function(){
          window.location.href = "../../PaginaPrincipal/principal.html";
@@ -44,9 +44,7 @@ backPage.addEventListener("click", function(event) {
 
 function updated(nickName,actualizarPuntos) {
     
-    localStorage.setItem('puntos', juegatonScore);  
-    let actualizarPuntos = localStorage.getItem("puntos");
-    let nickName = localStorage.getItem("jugador");
+
 
     var puntosFinales;
     fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)

@@ -38,7 +38,7 @@ function checkUser(){
 
   var nickName = window.localStorage.getItem("jugador");
   if (nickName == null || nickName == undefined) {
-    window.location.href = "../LoginRegister/index.html"; 
+    window.location.href = "../index.html"; 
   }
   
 
