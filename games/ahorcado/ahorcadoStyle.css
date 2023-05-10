@@ -74,6 +74,12 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-right:10px;
+}
+.wrapper {
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:center;
 }
 input {
     font-size: 1.3em;
@@ -108,7 +114,7 @@ input::placeholder {
 }
 
 button {
-    width: 20%;
+    width: 50%;
     padding: 15px;
     background-color: #BF9E14;
     color: white;

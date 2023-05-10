@@ -26,7 +26,8 @@
           <div class="helpText flex center" id="messageSop">
             <!--AQUÍ VA EL FEEDBACK AL USUARIO-->
           </div>
-          <div class="interaction1 flex center" id="letterAnswer">
+          <div class="wrapper">
+            <div class="interaction1 flex center" id="letterAnswer">
               <label class="buttonSel flex center" for="name">Introduce una letra: </label>
               <input class="buttonAns" type="text" oninput="this.value = this.value.toUpperCase()" id="letter" name="hangletter" maxlength="1"> 
               <button class="buttonCli flex center" type="button" id="answerLetra">Probar</button>
@@ -40,6 +41,8 @@
             <!--Return a la página principal-->
               <button id="return" class="buttonCli" style="display: none;">Volver a la pagina princpal</button>
           </div>
+          </div>
+         
       </article>
       <script src="ahorcado.js"></script>
   </body>
