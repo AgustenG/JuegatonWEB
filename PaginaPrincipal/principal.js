@@ -15,6 +15,11 @@ buton.addEventListener("click", function () {
         window.location.href = "../games/ahorcado/ahorcado.html";
       }, 1000);
       break;
+      case 3:
+        setTimeout(function () {
+          window.location.href = "../games/patoRunner/patoRunner.html";
+        }, 1000);
+        break;
       case 4:
         setTimeout(function () {
           window.location.href = "../games/bulletHell/bulletHell.html";
@@ -24,6 +29,6 @@ buton.addEventListener("click", function () {
 });
 
 function newRandom() {
-  let rnd = Math.floor(Math.random() * 2) + 1;
-  return 4;//rnd;
+  let rnd = Math.floor(Math.random() * 4) + 1;
+  return rnd;
 }
