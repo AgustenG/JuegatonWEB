@@ -15,10 +15,15 @@ buton.addEventListener("click", function () {
         window.location.href = "../games/ahorcado/ahorcado.html";
       }, 1000);
       break;
+      case 3:
+        setTimeout(function () {
+          window.location.href = "../games/patoRunner/patorunner.html";
+        }, 1000);
+        break;
   }
 });
 
 function newRandom() {
-  let rnd = Math.floor(Math.random() * 2) + 1;
+  let rnd = Math.floor(Math.random() * 3) + 1;
   return rnd;
 }
