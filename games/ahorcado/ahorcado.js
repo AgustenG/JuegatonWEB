@@ -108,6 +108,7 @@ function checkLetters() {
       //si el jugador acierta automaticamente gana y recibe puntos de bonus por cada letra sin descubrir
       if (word == palabraCorrecta) {
         document.getElementById("message").textContent = "HAS GANADO!";
+          updateScore();
           returnPrincipal();
       }
       //si falla pierde la partida
@@ -117,6 +118,7 @@ function checkLetters() {
         document.getElementById("horca").src = "./../../Resources/ahorcado/ahorcado8.png";
         intentos = 0;
         //you lost send data
+        updateScore();
         returnPrincipal();
       }
     }
@@ -157,16 +159,15 @@ function updated(nickName, actualizarPuntos) {
 }
 document.getElementById("return").addEventListener("click", function (event) {
     event.preventDefault();
-    localStorage.setItem("puntos", score);
-    let actualizarPuntos = localStorage.getItem("puntos");
-    let nickName = localStorage.getItem("jugador");
-    myWindow = window.open("", "", "width=50, height=60");
-    myWindow.document.write("<p>Volviendo a la página principal</p>");
-    updated(nickName, actualizarPuntos);
     setTimeout(function () {
-      myWindow.close();
       window.location.href = "../../PaginaPrincipal/principal.html";
     }, 2000);
     localStorage.removeItem("puntos");
   });
 
+function updateScore(){
+  localStorage.setItem("puntos", score);
+  let actualizarPuntos = localStorage.getItem("puntos");
+  let nickName = localStorage.getItem("jugador");
+  updated(nickName, actualizarPuntos);
+}

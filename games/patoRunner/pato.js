@@ -29,15 +29,10 @@ function JuegatonUpdate(){
 backPage.addEventListener("click", function(event) {
     event.preventDefault();
 
-    localStorage.setItem('puntos', juegatonScore);  
-    let actualizarPuntos = localStorage.getItem("puntos");
-    let nickName = localStorage.getItem("jugador");
 
-    myWindow = window.open("","","width=50, height=60");
-    myWindow.document.write("<p>Volviendo a la página principal</p>");
+
     updated(nickName, actualizarPuntos);
      setTimeout(function(){
-        myWindow.close();
          window.location.href = "../../PaginaPrincipal/principal.html";
      },2000)
     localStorage.removeItem("puntos");
@@ -48,6 +43,11 @@ backPage.addEventListener("click", function(event) {
 
 
 function updated(nickName,actualizarPuntos) {
+    
+    localStorage.setItem('puntos', juegatonScore);  
+    let actualizarPuntos = localStorage.getItem("puntos");
+    let nickName = localStorage.getItem("jugador");
+
     var puntosFinales;
     fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
     .then((response) => response.json())

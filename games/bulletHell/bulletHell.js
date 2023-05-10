@@ -184,11 +184,9 @@ document.getElementById("return").addEventListener("click", function (event) {
     localStorage.setItem("puntos", score);
     let actualizarPuntos = localStorage.getItem("puntos");
     let nickName = localStorage.getItem("Jugador");
-    myWindow = window.open("", "", "width=50, height=60");
-    myWindow.document.write("<p>Volviendo a la página principal</p>");
+
     setScore(nickName, actualizarPuntos);
     setTimeout(function () {
-      myWindow.close();
       localStorage.setItem("Jugado", true);
       window.location.href = "../../PaginaPrincipal/principal.html";
     }, 2000);
