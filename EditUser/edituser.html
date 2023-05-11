@@ -35,6 +35,12 @@
     </header>
     <div class="wrapper active">
         <div class="form-box register">
+            
+            <div class="login-register" id="log-out">
+                <button class="btn submit" type="submit" id="logout">
+                    Cerrar sesion
+                </p>
+            </div>
             <h2>Editar datos</h2>
             <form id="regist-form">
                 <div class="input-box">
@@ -66,11 +72,12 @@
                     <input class="color" type="color" id="color" name="color" />
                     <i id="emo" class="fa-solid fa-person-running"> </i>
                 </div>
-
+                <!-- Boton Guardar Cambios-->
                 <button class="btn submit" type="submit">Guardar cambios</button>
                 <div id="register-message"></div>
                 <div id="succesful-register-message"></div>
             </form>
+            <!-- Confirmas los cambios -->
             <form id="confirm">
                 <div id="confirmarCambios">
                     <div class="input-box">
@@ -88,11 +95,13 @@
                     <div id="succesful-confirm-message"></div>
                 </div>
             </form>
+            <!-- Boton borrar cuenta -->
             <div class="login-register" id="delete-account">
                 <button class="btn submit" type="submit" id="deleteAccount">
                     Borrar cuenta
                 </p>
             </div>
+            <!-- Confirmar borrado de cuenta-->
             <form id="confirmDelete">
                 <div id="confirmarBorrado">
                     <div class="input-box">
