@@ -77,8 +77,7 @@ function sortTable(index) {
           shouldSwitch = true;
           break;
         }
-      }
-      else if (index == 1 || index == 0) {
+      } else if (index == 1 || index == 0) {
         x = rows[i].getElementsByTagName("TD")[index];
         y = rows[i + 1].getElementsByTagName("TD")[index];
         //check if the two rows should switch place:
@@ -88,7 +87,6 @@ function sortTable(index) {
           break;
         }
       }
-
     }
     if (shouldSwitch) {
       /*If a switch has been marked, make the switch
@@ -97,8 +95,8 @@ function sortTable(index) {
       switching = true;
     }
     for (i = 1; i < rows.length; i++) {
-        x = rows[i].getElementsByTagName("TD")[4];
-        x.textContent = i;
-      }
+      x = rows[i].getElementsByTagName("TD")[4];
+      x.textContent = i;
+    }
   }
 }
