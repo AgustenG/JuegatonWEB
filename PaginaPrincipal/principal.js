@@ -36,36 +36,33 @@ fetch(`https://apipost.azurewebsites.net/Jugador`)
   .then((response) => response.json())
   .then((json) => {
     this.Jugadores = json;
-    var numerosAleatorios = [];
-    for (let i = 0; i < 3; i++) {
-      var numeroAleatorio = Math.floor(Math.random() * Jugadores.length);
-      if (!numerosAleatorios.includes(numeroAleatorio)) {
-        numerosAleatorios.push(numeroAleatorio);
-      } else {
-        i--;
+    if (!(Jugadores.length < playersNeeded)) {
+      var numerosAleatorios = [];
+      for (let i = 0; i < 3; i++) {
+        var numeroAleatorio = Math.floor(Math.random() * Jugadores.length);
+        if (!numerosAleatorios.includes(numeroAleatorio)) {
+          numerosAleatorios.push(numeroAleatorio);
+        } else {
+          i--;
+        }
       }
+      var arrayJugadores = [];
+      numerosAleatorios.forEach((num) => {
+        arrayJugadores.push(Jugadores[num]);
+      });
+      CreateJugadors(arrayJugadores);
     }
-    var arrayJugadores = [];
-    numerosAleatorios.forEach((num) => {
-      arrayJugadores.push(Jugadores[num]);
-    });
- CreateJugadors(arrayJugadores);
   });
 
 var nickName = localStorage.getItem("jugador");
 
-
 fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
-.then((response) => response.json())
-.then((json) => {
-    (this.jugador = json)
+  .then((response) => response.json())
+  .then((json) => {
+    this.jugador = json;
     document.querySelector(".fa-person-running").style.color = jugador.color;
-}, )
-.catch((error) =>  console.log(error));
-
-
-
-
+  })
+  .catch((error) => console.log(error));
 
 function CreateJugadors(arrayJugadores) {
   let players = document.querySelectorAll(".playerTr");
