@@ -5,6 +5,7 @@ var color = document.getElementById("color");
 var nickName = localStorage.getItem("jugador");
 var deleteBtn = document.getElementById("delete-account");
 var confirmDelete = document.getElementById("confirmDelete");
+var logout = document.getElementById("logout");
 
 // Función para pedir el color y cambiarlo en el usuario
 function reColor() {
@@ -26,7 +27,11 @@ color.addEventListener("input", function(event) {
 // Mostramos el area de confirmación
 edit.addEventListener("submit", function(event) {
     event.preventDefault();
-    confirm.style.display = "block";
+    if(confirm.style.display == "none") {
+        confirm.style.display = "block";
+    } else{
+        confirm.style.display = "none";
+    }
     confirmDelete.style.display = "none";
 })
 
@@ -94,7 +99,11 @@ function updateChanges(message2) {
 // DELETE
 deleteBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    confirmDelete.style.display = "block";
+    if(confirmDelete.style.display == "none") {
+        confirmDelete.style.display = "block";
+    } else{
+        confirmDelete.style.display = "none";
+    }
     confirm.style.display = "none";
 })
 
@@ -144,3 +153,16 @@ function deleteUser(message2) {
     //     console.error('Error al eliminar el recurso', error);
     //   });
 }
+
+// LogOut
+logout.addEventListener("click", function (event){
+    event.preventDefault();
+    localStorage.clear();
+
+    myWindow = window.open("", "", "width=50, height=60");
+    myWindow.document.write("<p>Volviendo al indice</p>");
+    setTimeout(function() {
+        myWindow.close();
+        window.location.href = "../../index.html";
+    }, 2000)
+})
