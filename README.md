@@ -32,7 +32,7 @@ Para nuestro proyecto hemos obtado por distintos juegos que otorgan una determin
 
 Tenemos cinco juegos: Wordle, Ahorcado, Pato Runner, Space Invader y un Bullet Hell.
 
-### Wordle
+### <u>**Wordle**</u>
 Fue el primer juego que creamos y uno de los más faciles de entender.
 
 El jugador inicia con 100 puntos. Por cada intento que falle se le reduciran 10.
@@ -47,7 +47,7 @@ Si la letra esta en gris, la palabra no contiene esa letra:
 
 ![Wordle Exemple](/Resources/documentacion/wordle.png)
 
-### Ahorcado
+### <u>**Ahorcado**</u>
 
 El siguiente juego que creamos se trata del ahorcado.
 
@@ -55,7 +55,7 @@ Al igual que el Wordle, se elije una palabra de forma aleatoria y tienes siete i
 
 ![Ahorcado Exemple](/Resources/documentacion/ahorcado.png)
 
-### Pato Runner
+### <u>**Pato Runner**</u>
 
 Hicimos otro juego que se trata de un infinite runner algo extraño. Esta basado en el Chrome Dino solo que con partes modificadas.
 
@@ -79,12 +79,12 @@ Tal como podemos ver cuando el jugador ha obtenido 100 puntos de nuestro pato ru
 
 ![Pato Runner](/Resources/documentacion/patorunner.png)
 
-### Juegaton Invaders
+### <u>**Juegaton Invaders**</u>
 Es el Space Invaders pero para nuestra plataforma, este juego es el que más puntuacion puedes obtener si logras acabar con todos los invasores
 
 ![Juegaton Invaders](/Resources/documentacion/invaders.png)
 
-### Bullet Hell
+### <u>**Bullet Hell**</u>
 Y por ultimo tenemos un Bullet Hell
 
 ![Bullet Hell](/Resources/documentacion/bullethell.png)
