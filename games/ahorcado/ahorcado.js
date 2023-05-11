@@ -6,7 +6,7 @@ fetch(`https://apipost.azurewebsites.net/ahorcado`)
   .then((response) => response.json())
   .then((json) => {
     (palabraCorrecta = json[Math.floor(Math.random() * json.length)].palabra)
-
+    console.log(palabraCorrecta);
    //preparamos el escenario con la imagen y los mensajes base
     var setMes = document.getElementById("messageSop");
     var mes = document.createElement("p");
@@ -104,7 +104,7 @@ function checkLetters() {
   var palabraBoton = document.getElementById("answerPalabra");
   palabraBoton.addEventListener("click", function () {
     if (intentos > 0) {
-      var word = document.getElementById("word").value;
+      var word = document.getElementById("word").value.toLowerCase();
       //si el jugador acierta automaticamente gana y recibe puntos de bonus por cada letra sin descubrir
       if (word == palabraCorrecta) {
         document.getElementById("message").textContent = "HAS GANADO!";
