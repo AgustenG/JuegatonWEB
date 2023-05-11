@@ -130,25 +130,24 @@ confirmDelete.addEventListener("submit", function(event) {
         .catch((error) => message.innerText = 'El usuario o la contraseña no existen');
 })
 
-function deleteUser(message2) {
+async function deleteUser(message2) {
 
     message2.innerText = "Jugador eliminado satisfactoriamente";
     // localStorage.clear();
-    let url=`https://apipost.azurewebsites.net/Jugador`;
-    remove(url,nickName);
-}
+    let url=`https://apipost.azurewebsites.net/Jugador/${nickName}`;
 
-function remove(apiUrl, nickname){
-    console.log(apiUrl + "/" + nickName);
-    fetch(apiUrl + "/" + nickname, {
-      method: 'DELETE'
-    }).then(() => {
+    const response = await fetch(url, {
+      method: 'DELETE',
+      headers: {
+          'Content-type': 'application/json'
+      }
+    })
+    .then(() => {
        console.log('removed');
     }).catch(err => {
       console.error(err);
     });
 }
-
 // LogOut
 logout.addEventListener("click", function (event){
     event.preventDefault();
