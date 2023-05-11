@@ -101,7 +101,6 @@ function updatedInvaders(nickName,actualizarPuntos) {
               'Content-Type':'application/json'
           }
       }
-      console.log(put);
       fetch(url, put)
       .then((response) => response.json())
       .then((data) => console.log(data))

@@ -51,7 +51,6 @@ function Registrarse(){
             'Content-Type':'application/json'
         }
     }
-    console.log(post);
    fetch(url, post)
      .then((response) => response.json())
      .then((json)=> {
@@ -61,7 +60,7 @@ function Registrarse(){
         localStorage.setItem("contraseña",passwd);
         PaginaPrincipal();
      }, )
-     .catch((error) =>  console.log(error));
+     .catch((error) =>   message.innerText = 'Ya hay un jugador con ese nickname');
     
 }
 function CheckLogin(){

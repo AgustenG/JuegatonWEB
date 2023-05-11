@@ -10,6 +10,7 @@ main {
 
 body {
     background: url(../../wpp2.jpg) no-repeat;
+    background-size: cover;
     font-family: 'Braah One', sans-serif;
     color :#ffde59;
 }

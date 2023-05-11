@@ -103,7 +103,6 @@ function checkCollision() {
         let d = Math.sqrt(x * x + y * y);
         //console.log(d - (launcheR + shipR));
         if (d < (launcheR + shipR)) {
-            console.log(score);
             alive = false;
             returnPrincipal()
         }
@@ -138,6 +137,7 @@ function everyTime() {
     if (alive) {
         count++;
         score++;
+        if (score >= 100) score = 100;
         let canvas = document.getElementById("canvas-box");
         if (canvas.getContext) {
             let ctx = canvas.getContext("2d");
@@ -187,7 +187,6 @@ document.getElementById("return").addEventListener("click", function (event) {
 
     setScore(nickName, actualizarPuntos);
     setTimeout(function () {
-      localStorage.setItem("Jugado", true);
       window.location.href = "../../PaginaPrincipal/principal.html";
     }, 2000);
     localStorage.removeItem("puntos");

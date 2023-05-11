@@ -6,7 +6,6 @@ fetch(`https://apipost.azurewebsites.net/ahorcado`)
   .then((response) => response.json())
   .then((json) => {
     (palabraCorrecta = json[Math.floor(Math.random() * json.length)].palabra)
-    console.log(palabraCorrecta);
    //preparamos el escenario con la imagen y los mensajes base
     var setMes = document.getElementById("messageSop");
     var mes = document.createElement("p");

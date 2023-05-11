@@ -20,6 +20,8 @@ body {
     background-color: #9b3042;
 }
 
+
+  
 .bs-searchbox {
     background-color: transparent;
 }
@@ -94,7 +96,7 @@ ul.dropdown-menu.inner {
 }
 
 .btn.dropdown-toggle.btn-default {
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
 }
 
@@ -103,8 +105,9 @@ ul.dropdown-menu.inner {
 }
 
 .btn-group.bootstrap-select.countrypicker.f16.open button {
-    background-color: transparent;
+    background-color: transparent !important;
 }
+
 
 .wrapper {
     background-color: transparent;
