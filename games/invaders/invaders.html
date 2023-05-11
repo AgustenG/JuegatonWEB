@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegaton invaders</title>
+    <link rel="stylesheet" href="#">
+    <style>
+        /* Estilo principal de la página*/
+        canvas{
+            box-shadow: rgb(61, 61, 192) 20px 10px 500px;
+        }
+        h1{
+            margin: 0px;
+            margin-bottom: 10px;
+            font-size: 2.9;
+            font-family: 'Helvetica';
+            color: rgb(0, 136, 255);
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0px;
+            margin: 0px;
+            height: 100vh;
+            background: linear-gradient(
+                0deg,
+                rgb(97,98,99) 0%,
+                rgba(0,0,0,0) 100%
+            );
+            background-image: url("icons/spacebkg.png");
+        }
+        button{
+            color: aliceblue;
+            display: none;
+        }
+        p{
+            color: blue;
+            font-family: 'Helvetica';
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juegaton Invaders</h1>
+    <canvas id="game"></canvas>
+    <script type="module" src="invaders.js"></script>
+    <button id="btn"><p>Volver a la página principal</p></button>
+</body>
+</html>
