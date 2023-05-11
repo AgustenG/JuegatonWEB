@@ -1,4 +1,5 @@
 # JuegatonWEB
+
 Este repositorio pertenece al Grupo 6 de DAMv1A del ITB, Curso 2022-2023, formado por [Agustin Garibotto](agustin.garibotto.7e6@itb.cat), [Olav Martos](olav.martos.7e4@itb.cat), [Yanick Garcia](
 yanick.garcia.7e6@itb.cat) y [Joan Aguayo](joan.aguayo.7e6@itb.cat).
 
@@ -15,6 +16,7 @@ Esta web se trata de una colección de minijuegos donde los usuarios pueden regi
 ![Register](/Resources/documentacion/register.png)
 
 ## Otras secciones de la Web
+
 Toda la pagina no se centra solo en juegos, tenemos distintas paginas que no tienen que ver con jugar.
 
 Tenemos la pagina principal donde en una parte podemos una pequeña tabla con tres jugadores aleatorios donde se muestran tres partes del jugador: su nickname, su puntuacion y su pais.
@@ -34,11 +36,13 @@ Y para finalizar tenemos una pagina donde el usuario puede hacer tres cosas:
 ![EditUser](/Resources/documentacion/edituser.png)
 
 ## Juegos de la Juegaton
+
 Para nuestro proyecto hemos obtado por distintos juegos que otorgan una determinada puntuacion y la suman a la del usuario que esta jugando
 
 Tenemos cinco juegos: Wordle, Ahorcado, Pato Runner, Space Invader y un Bullet Hell.
 
 ### <u>**Wordle**</u>
+
 Fue el primer juego que creamos y uno de los más faciles de entender.
 
 El jugador inicia con 100 puntos. Por cada intento que falle se le reduciran 10.
@@ -86,12 +90,13 @@ Tal como podemos ver cuando el jugador ha obtenido 100 puntos de nuestro pato ru
 ![Pato Runner](/Resources/documentacion/patorunner.png)
 
 ### <u>**Juegaton Invaders**</u>
+
 Es el Space Invaders pero para nuestra plataforma, este juego es el que más puntuacion puedes obtener si logras acabar con todos los invasores
 
 ![Juegaton Invaders](/Resources/documentacion/invaders.png)
 
 ### <u>**Bullet Hell**</u>
+
 Y por ultimo tenemos un Bullet Hell
 
 ![Bullet Hell](/Resources/documentacion/bullethell.png)
-
