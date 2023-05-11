@@ -13,8 +13,8 @@ canvas.height = 600;
 const background = new Image();
 background.src = "icons/spacebkg.png";
 
-const rocketBulletCtrlr = new BulletCtrlr(canvas, 7, "aliceblue", true);
-const alienBulletCtrlr = new BulletCtrlr(canvas, 7, "red", false);
+const rocketBulletCtrlr = new BulletCtrlr(canvas, 5, "aliceblue", true);
+const alienBulletCtrlr = new BulletCtrlr(canvas, 8, "red", false);
 const alienCtrlr = new AlienCtrlr(canvas, alienBulletCtrlr, rocketBulletCtrlr);
 const rocket = new Rocket(canvas, 3, rocketBulletCtrlr);
 

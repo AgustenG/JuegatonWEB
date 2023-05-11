@@ -24,7 +24,7 @@ export default class AlienCtrlr {
   defaultYSpeed = 1;
   moveDownTimerDefault = 30;
   moveDownTimer = this.moveDownTimerDefault;
-  shootTimerDefault = 50;
+  shootTimerDefault = 15;
   shootTimer = this.shootTimerDefault;
 
   constructor(canvas, alienBulletCtrlr, rocketBulletCtrlr) {

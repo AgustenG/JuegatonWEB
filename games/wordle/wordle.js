@@ -27,6 +27,7 @@ function palabraSecreta() {
 
 }
 
+console.log(secret);
 // Le añadimos un evento al input del usuario por si al terminar de escribir pulsa ENTER en lugar del boton Comprobar
 wordUser.addEventListener("keydown", function(event) {
     if (event.keyCode === 13) {

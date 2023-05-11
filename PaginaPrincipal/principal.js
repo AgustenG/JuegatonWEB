@@ -90,8 +90,7 @@ function CreateJugadors(arrayJugadores) {
 
 function newRandom() {
   let rnd = Math.floor(Math.random() * 5) + 1;
-  // return rnd;
-  return 5;
+  return rnd;
 }
 
 function checkUser() {
