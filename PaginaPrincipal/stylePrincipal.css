@@ -13,15 +13,15 @@ body{
 
 div i{
     text-align: end;
-    font-size: 45px;
-    height: 30%;
+    font-size: 100px;
+    height: 40%;
     color: #183F7F ;
 }
 
 span{
     color: #183F7F ;
     text-align: end;
-    font-size: 45px;
+    font-size: 80px;
     
 }
 .player {
@@ -30,10 +30,13 @@ span{
     justify-content: space-around;
 }
 
-
+h2{
+    width: 100%;
+    text-align: center;
+}
 .circle{
-    height: 70px;
-    width: 70px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     background-color: #FFE57C;
     text-align: center;
@@ -42,8 +45,8 @@ span{
 }
 .circle:hover{
     transition: 200ms;
-    height: 80px;
-    width: 80px;
+    height: 220px;
+    width: 220px;
     -webkit-transition: 200ms;
     -moz-transition: 200ms;
     -ms-transition: 200ms;
@@ -77,7 +80,12 @@ table{
 th{
     background-color: transparent;
     color: #ffde59;
+    text-align: center;
 }
+img{
+    height: 50px;
+    width: 55px;
+  }
 thead {
     backdrop-filter: blur(50px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -111,7 +119,6 @@ p{
     flex-direction: column;
 
 }
-
 
 .fa-gear{
     cursor: pointer;
