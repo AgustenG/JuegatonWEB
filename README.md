@@ -1,6 +1,12 @@
 # JuegatonWEB
-Es el repositorio de la pagina web del proyecto de DAMv1A hecho por el grupo 6 conformado por [Agustin Garibotto](agustin.garibotto.7e6@itb.cat), [Olav Martos](olav.martos.7e4@itb.cat), [Yanick Garcia](
+Este repositorio pertenece al Grupo 6 de DAMv1A del ITB, Curso 2022-2023, formado por [Agustin Garibotto](agustin.garibotto.7e6@itb.cat), [Olav Martos](olav.martos.7e4@itb.cat), [Yanick Garcia](
 yanick.garcia.7e6@itb.cat) y [Joan Aguayo](joan.aguayo.7e6@itb.cat).
+
+Este repositorio pertenece al proyecto de fin de curso en el que tuvimos dos semanas para hacer el proyecto.
+
+Para este proyecto teniamos que hacer tres cosas: una Base de datos, una API y una pagina web que se conecte a dicha API.
+
+Este repositorio se trata del repositorio de la pagina web donde los usuarios se pueden registrar/iniciar sesion, jugar, modificar sus datos, ver el leaderboard y cerrar sesion.
 
 Esta web se trata de una colección de minijuegos donde los usuarios pueden registrarse e iniciar sesión, para poder jugar a los distintos juegos que tenemos.
 
