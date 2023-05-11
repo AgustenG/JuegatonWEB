@@ -57,29 +57,28 @@ confirm.addEventListener("submit", function(event) {
                 message.innerText = "Usuario o contraseña incorrecta";
             }
         }, )
-        .catch((error) => message.innerText = 'El usuario o la contraseña no existen');
+        .catch((error) => message.innerText = error);
 })
 
 function updateChanges(message2) {
     // Creamos una instancia de la clase Jugador, con los nuevos datos introducidos por el usuario
     var name = document.getElementById("name").value;
     var surname = document.getElementById("surname").value;
-    var nickname = document.getElementById("newNick").value;
     var passwd = document.getElementById("newPasswd").value;
     var country = document.getElementById("country").value;
     var color = document.getElementById("color").value;
 
-    var player = new Jugador(name, surname, nickname, passwd, country, color)
+    var player = new Jugador(name, surname, nickName, passwd, country, color)
     console.log(player);
 
-    localStorage.setItem("jugador", nickname);
+    localStorage.setItem("jugador", nickName);
     localStorage.setItem("contraseña", passwd)
     fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
         .then((response) => response.json())
         .then((json) => {
             (this.posts = json)
             message2.innerText = 'Datos cambiados correctamente';
-            let url = `https://apipost.azurewebsites.net/Jugador/${puntosFinales} ${nickName}`;
+            let url = `https://apipost.azurewebsites.net/Jugador`;
             let put = {
                 method: 'PUT',
                 body: JSON.stringify(player),
@@ -88,10 +87,10 @@ function updateChanges(message2) {
                 }
             }
             console.log(put);
-            // fetch(url, put)
-            //     .then((response) => response.json())
-            //     .then((data) => console.log(data))
-            //     .catch((error) => console.error(error));
+            fetch(url, put)
+                .then((response) => response.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.error(error));
         }, )
         .catch((error) => console.log(error));
 }
