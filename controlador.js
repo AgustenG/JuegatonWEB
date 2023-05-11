@@ -42,7 +42,6 @@ function Registrarse(){
     var color = document.getElementById("color").value;
     
     var player = new Jugador(name,surname,nickname,passwd,country,color)
-    console.log(player);
     //Método POST para enviar informacion
     let url="https://apipost.azurewebsites.net/Jugador";
     let post = {
@@ -52,6 +51,7 @@ function Registrarse(){
             'Content-Type':'application/json'
         }
     }
+    console.log(post);
    fetch(url, post)
      .then((response) => response.json())
      .then((json)=> {
@@ -61,18 +61,18 @@ function Registrarse(){
         localStorage.setItem("contraseña",passwd);
         PaginaPrincipal();
      }, )
-     .catch((error) =>  message.innerText = 'Ha habido un error, vuelve a intentarlo');
+     .catch((error) =>  console.log(error));
     
 }
 function CheckLogin(){
 
     nickName = localStorage.getItem("jugador");
-    if (localStorage.getItem("jugador")!=null){
+    if (localStorage.getItem("jugador")!=null || localStorage.getItem("jugador")!=undefined){
         fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
         .then((response) => response.json())
         .then((json) => {
           if(localStorage.getItem("contraseña")==json.password){
-            PaginaPrincipal();
+            
           } })
         .catch((error) =>  console.log(error));
     }

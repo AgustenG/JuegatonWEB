@@ -1,122 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Juegatón - Editar tu perfil</title>
-    <link rel="stylesheet" href="edituser.css">
+    <link rel="stylesheet" href="edituser.css" />
 
     <!--Iconos importados de fontawesome-->
-    <script src="https://kit.fontawesome.com/d20c834341.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/d20c834341.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!--Libreria para el dropdown con banderas-->
-    <link rel="stylesheet" href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css" />
-    <link rel="stylesheet" href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css" />
-    <link rel="stylesheet" href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
-</head>
+    <link
+      rel="stylesheet"
+      href="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/css/bootstrap-select.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/css/bootstrap-select-country.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="../Leaderboard/leaderboard.html">Leaderboard</a></li>
-                <li>
-                    <a type="button" class="fa-solid fa-gear" title="config"> </a>
-                </li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="../Leaderboard/leaderboard.html">Leaderboard</a></li>
+          <li>
+            <a type="button" class="fa-solid fa-gear" title="config"> </a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <div class="wrapper active">
-        <div class="form-box register">
-            
-            <div class="login-register" id="log-out">
-                <button class="btn submit" type="submit" id="logout">
-                    Cerrar sesion
-                </p>
-            </div>
-            <h2>Editar datos</h2>
-            <form id="regist-form">
-                <div class="input-box">
-                    <span class="icon fa-solid fa-pen"></span>
-                    <input type="text" required id="name" name="fname" />
-                    <label for="nick">Nombre</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon fa-solid fa-pen"></span>
-                    <input type="text" required id="surname" name="surname" />
-                    <label for="nick">Apellidos</label>
-                </div>
-
-                <div class="input-box">
-                    <span class="icon fa-solid fa-lock"></span>
-                    <input type="password" required id="newPasswd" name="password" />
-                    <label for="passwd">Contraseña</label>
-                </div>
-                <div class="picker">
-                    <select class="selectpicker countrypicker" data-live-search="true" id="country" data-flag="true" size="3"></select>
-                </div>
-
-                <div class="colorUser">
-                    <input class="color" type="color" id="color" name="color" />
-                    <i id="emo" class="fa-solid fa-person-running"> </i>
-                </div>
-                <!-- Boton Guardar Cambios-->
-                <button class="btn submit" type="submit">Guardar cambios</button>
-                <div id="register-message"></div>
-                <div id="succesful-register-message"></div>
-            </form>
-            <!-- Confirmas los cambios -->
-            <form id="confirm">
-                <div id="confirmarCambios">
-                    <div class="input-box">
-                        <span class="icon fa-solid fa-user"></span>
-                        <input type="text" required id="confirmNick" name="nick" />
-                        <label for="nick">Nickname Actual</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon fa-solid fa-lock"></span>
-                        <input type="password" required id="confirmPasswd" name="password" />
-                        <label for="passwd">Contraseña Actual</label>
-                    </div>
-                    <button class="btn submit" type="submit">Confirmar</button>
-                    <div id="confirm-message"></div>
-                    <div id="succesful-confirm-message"></div>
-                </div>
-            </form>
-            <!-- Boton borrar cuenta -->
-            <div class="login-register" id="delete-account">
-                <button class="btn submit" type="submit" id="deleteAccount">
-                    Borrar cuenta
-                </p>
-            </div>
-            <!-- Confirmar borrado de cuenta-->
-            <form id="confirmDelete">
-                <div id="confirmarBorrado">
-                    <div class="input-box">
-                        <span class="icon fa-solid fa-user"></span>
-                        <input type="text" required id="deletedNick" name="nick" />
-                        <label for="nick">Nickname Actual</label>
-                    </div>
-                    <div class="input-box">
-                        <span class="icon fa-solid fa-lock"></span>
-                        <input type="password" required id="deletedPasswd" name="password" />
-                        <label for="passwd">Contraseña Actual</label>
-                    </div>
-                    <button class="btn submit" type="submit">Borrar</button>
-                <div id="delete-message"></div>
-                <div id="succesful-delete-message"></div>
-            </div>
-            </form>
+      <div class="form-box register">
+        <div class="login-register" id="log-out">
+          <button class="btn submit" type="submit" id="logout">
+            Cerrar sesion
+          </button>
         </div>
-    </div>
+        <div>
+          <h2>Editar datos</h2>
+          <form id="regist-form">
+            <div class="input-box">
+              <span class="icon fa-solid fa-pen"></span>
+              <input type="text" required id="name" name="fname" />
+              <label for="nick">Nombre</label>
+            </div>
+            <div class="input-box">
+              <span class="icon fa-solid fa-pen"></span>
+              <input type="text" required id="surname" name="surname" />
+              <label for="nick">Apellidos</label>
+            </div>
 
+            <div class="input-box">
+              <span class="icon fa-solid fa-lock"></span>
+              <input type="password" required id="newPasswd" name="password" />
+              <label for="passwd">Contraseña</label>
+            </div>
+            <div class="picker">
+              <select
+                class="selectpicker countrypicker"
+                data-live-search="true"
+                id="country"
+                data-flag="true"
+                size="3"
+              ></select>
+            </div>
+
+            <div class="colorUser">
+              <input class="color" type="color" id="color" name="color" />
+              <i id="emo" class="fa-solid fa-person-running"> </i>
+            </div>
+            <!-- Boton Guardar Cambios-->
+            <button class="btn submit" type="submit">Guardar cambios</button>
+            <div id="register-message"></div>
+            <div id="succesful-register-message"></div>
+          </form>
+          <!-- Confirmas los cambios -->
+          <form id="confirm">
+            <div id="confirmarCambios">
+              <div class="input-box">
+                <span class="icon fa-solid fa-user"></span>
+                <input type="text" required id="confirmNick" name="nick" />
+                <label for="nick">Nickname Actual</label>
+              </div>
+              <div class="input-box">
+                <span class="icon fa-solid fa-lock"></span>
+                <input
+                  type="password"
+                  required
+                  id="confirmPasswd"
+                  name="password"
+                />
+                <label for="passwd">Contraseña Actual</label>
+              </div>
+              <button class="btn submit" type="submit">Confirmar</button>
+              <div id="confirm-message"></div>
+              <div id="succesful-confirm-message"></div>
+            </div>
+          </form>
+          <!-- Boton borrar cuenta -->
+          <div class="login-register" id="delete-account">
+            <button class="btn submit" type="submit" id="deleteAccount">
+              Borrar cuenta
+            </button>
+          </div>
+          <!-- Confirmar borrado de cuenta-->
+          <form id="confirmDelete">
+            <div id="confirmarBorrado">
+              <div class="input-box">
+                <span class="icon fa-solid fa-user"></span>
+                <input type="text" required id="deletedNick" name="nick" />
+                <label for="nick">Nickname Actual</label>
+              </div>
+              <div class="input-box">
+                <span class="icon fa-solid fa-lock"></span>
+                <input
+                  type="password"
+                  required
+                  id="deletedPasswd"
+                  name="password"
+                />
+                <label for="passwd">Contraseña Actual</label>
+              </div>
+              <button class="btn submit" type="submit">Borrar</button>
+              <div id="delete-message"></div>
+              <div id="succesful-delete-message"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     <script src="edituser.js"></script>
     <script src="../Modelos/Jugador.js"></script>
     <!--COUNTRY PICKER -->
@@ -124,5 +154,5 @@
     <script src="//cdn.tutorialjinni.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//cdn.tutorialjinni.com/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script src="//g.tutorialjinni.com/mojoaxel/bootstrap-select-country/dist/js/bootstrap-select-country.min.js"></script>
-</body>
+  </body>
 </html>

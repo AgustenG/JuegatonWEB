@@ -94,7 +94,7 @@ function newRandom() {
 
 function checkUser() {
   var nickName = window.localStorage.getItem("jugador");
-  if (nickName == null || nickName == undefined) {
+  if (nickName == null || nickName == undefined || nickName == "") {
     window.location.href = "../index.html";
   }
 }
