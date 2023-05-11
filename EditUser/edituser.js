@@ -136,28 +136,16 @@ function deleteUser(message2) {
     // localStorage.clear();
     let url=`https://apipost.azurewebsites.net/Jugador`;
     remove(url,nickName);
-    // const deleteMethod = {
-    //     method: 'DELETE', // Method itself
-    //     headers: {
-    //      'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
-    //     },
-    //     // No need to have body, because we don't send nothing to the server.
-    //    }
-    //    // Make the HTTP Delete call using fetch api
-    //    fetch(url, deleteMethod) 
-    //    .then(response => response.json())
-    //    .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
-    //    .catch(err => console.log(err)) // Do something with the error
 }
 
 function remove(apiUrl, nickname){
-    console.log(apiUrl);
+    console.log(apiUrl + "/" + nickName);
     fetch(apiUrl + "/" + nickname, {
       method: 'DELETE'
     }).then(() => {
        console.log('removed');
     }).catch(err => {
-      console.error(err)
+      console.error(err);
     });
 }
 
