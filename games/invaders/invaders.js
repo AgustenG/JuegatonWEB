@@ -69,4 +69,46 @@ function checkGameOver() {
   console.log(puntuacion);
 }
 
+document.getElementById("btn").addEventListener("click", function (event){
+  event.preventDefault();
+  console.log(puntuacion);
+  localStorage.setItem('puntos', puntuacion)
+  console.log(puntuacion);
+  var actualizarPuntos = localStorage.getItem('puntos');
+  console.log(actualizarPuntos);
+  let nickName = localStorage.getItem("jugador");
+  updatedInvaders(nickName, actualizarPuntos);
+  document.getElementById("btn").disabled = true;
+  setTimeout(function(){
+    window.location.href = "../../PaginaPrincipal/principal.html"
+  }, 2000)
+  localStorage.removeItem("puntos");
+})
+
+
+function updatedInvaders(nickName,actualizarPuntos) {
+  var puntosFinales;
+  fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
+  .then((response) => response.json())
+  .then((json) => {
+    let posts = json
+      puntosFinales = parseInt(posts.puntuacion) + parseInt(actualizarPuntos);
+      let url  = `https://apipost.azurewebsites.net/Jugador/${puntosFinales} ${nickName}`;
+      let put ={
+          method:'PUT',
+          // body: JSON.stringify(text),
+          headers: {
+              'Content-Type':'application/json'
+          }
+      }
+      console.log(put);
+      fetch(url, put)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }, )
+  .catch((error) =>  console.log(error));
+ 
+} 
+
 setInterval(game, 1000 / 60);

@@ -121,7 +121,7 @@ confirmDelete.addEventListener("submit", function(event) {
                 deleteUser(message2);
                 setTimeout(function() {
                     myWindow.close();
-                    window.location.href = "../../PaginaPrincipal/principal.html";
+                    // window.location.href = "../../index.html";
                 }, 2000)
             } else {
                 message.innerText = "Usuario o contraseña incorrecta";
@@ -133,24 +133,32 @@ confirmDelete.addEventListener("submit", function(event) {
 function deleteUser(message2) {
 
     message2.innerText = "Jugador eliminado satisfactoriamente";
-    localStorage.clear();
-    // fetch('https://apipost.azurewebsites.net/Jugador/${nickName}', {
-    //     method: 'DELETE',
-    //   })
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Error al eliminar el recurso');
-    //     }
-    //     return response.json();
-    //   })
-    //   .then(data => {
-    //     console.log('Recurso eliminado exitosamente', data);
-    //     message2.innerText = "Jugador eliminado satisfactoriamente";
-    //     localStorage.clear();
-    //   })
-    //   .catch(error => {
-    //     console.error('Error al eliminar el recurso', error);
-    //   });
+    // localStorage.clear();
+    let url=`https://apipost.azurewebsites.net/Jugador`;
+    remove(url,nickName);
+    // const deleteMethod = {
+    //     method: 'DELETE', // Method itself
+    //     headers: {
+    //      'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+    //     },
+    //     // No need to have body, because we don't send nothing to the server.
+    //    }
+    //    // Make the HTTP Delete call using fetch api
+    //    fetch(url, deleteMethod) 
+    //    .then(response => response.json())
+    //    .then(data => console.log(data)) // Manipulate the data retrieved back, if we want to do something with it
+    //    .catch(err => console.log(err)) // Do something with the error
+}
+
+function remove(apiUrl, nickname){
+    console.log(apiUrl);
+    fetch(apiUrl + "/" + nickname, {
+      method: 'DELETE'
+    }).then(() => {
+       console.log('removed');
+    }).catch(err => {
+      console.error(err)
+    });
 }
 
 // LogOut

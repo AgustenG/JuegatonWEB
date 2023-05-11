@@ -72,7 +72,7 @@ function CheckLogin(){
         .then((response) => response.json())
         .then((json) => {
           if(localStorage.getItem("contraseña")==json.password){
-            
+            window.location.href = "/PaginaPrincipal/principal.html";
           } })
         .catch((error) =>  console.log(error));
     }

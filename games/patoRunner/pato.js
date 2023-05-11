@@ -44,8 +44,6 @@ backPage.addEventListener("click", function(event) {
 
 function updated(nickName,actualizarPuntos) {
     
-
-
     var puntosFinales;
     fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
     .then((response) => response.json())
