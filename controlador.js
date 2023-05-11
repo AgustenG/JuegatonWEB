@@ -15,7 +15,7 @@ const message = document.getElementById('login-message');
     .then((json) => {
         (this.posts = json)
         if(document.getElementById("passwd").value==this.posts.password){
-            localStorage.setItem("jugador",nickName);
+           calStorage.setItem("jugador",nickName); lo
             localStorage.setItem("contraseña",this.posts.password);
             PaginaPrincipal();
         } else{
