@@ -18,7 +18,6 @@ buton.addEventListener("click", function () {
     case 3:
       setTimeout(function () {
         window.location.href = "../games/patoRunner/patorunner.html";
-        window.location.href = "../games/patoRunner/patoRunner.html";
       }, 1000);
       break;
     case 4:
@@ -26,6 +25,11 @@ buton.addEventListener("click", function () {
         window.location.href = "../games/bulletHell/bulletHell.html";
       }, 1000);
       break;
+      case 5:
+        setTimeout(function () {
+          window.location.href = "../games/invaders/invaders.html";
+        }, 1000);
+        break;
   }
 });
 
@@ -85,7 +89,7 @@ function CreateJugadors(arrayJugadores) {
 }
 
 function newRandom() {
-  let rnd = Math.floor(Math.random() * 3) + 1;
+  let rnd = Math.floor(Math.random() * 5) + 1;
   return rnd;
 }
 
