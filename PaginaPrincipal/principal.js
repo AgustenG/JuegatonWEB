@@ -15,31 +15,86 @@ buton.addEventListener("click", function () {
         window.location.href = "../games/ahorcado/ahorcado.html";
       }, 1000);
       break;
-      case 3:
-        setTimeout(function () {
-          window.location.href = "../games/patoRunner/patorunner.html";
-          window.location.href = "../games/patoRunner/patoRunner.html";
-        }, 1000);
-        break;
-      case 4:
-        setTimeout(function () {
-          window.location.href = "../games/bulletHell/bulletHell.html";
-        }, 1000);
-        break;
+    case 3:
+      setTimeout(function () {
+        window.location.href = "../games/patoRunner/patorunner.html";
+        window.location.href = "../games/patoRunner/patoRunner.html";
+      }, 1000);
+      break;
+    case 4:
+      setTimeout(function () {
+        window.location.href = "../games/bulletHell/bulletHell.html";
+      }, 1000);
+      break;
   }
 });
+
+var allPlayers = [];
+const playersNeeded = 3;
+
+fetch(`https://apipost.azurewebsites.net/Jugador`)
+  .then((response) => response.json())
+  .then((json) => {
+    this.Jugadores = json;
+    var numerosAleatorios = [];
+    for (let i = 0; i < 3; i++) {
+      var numeroAleatorio = Math.floor(Math.random() * Jugadores.length);
+      if (!numerosAleatorios.includes(numeroAleatorio)) {
+        numerosAleatorios.push(numeroAleatorio);
+      } else {
+        i--;
+      }
+    }
+    var arrayJugadores = [];
+    numerosAleatorios.forEach((num) => {
+      arrayJugadores.push(Jugadores[num]);
+    });
+ CreateJugadors(arrayJugadores);
+  });
+
+var nickName = localStorage.getItem("jugador");
+
+
+fetch(`https://apipost.azurewebsites.net/Jugador/${nickName}`)
+.then((response) => response.json())
+.then((json) => {
+    (this.jugador = json)
+    document.querySelector(".fa-person-running").style.color = jugador.color;
+}, )
+.catch((error) =>  console.log(error));
+
+
+
+
+
+function CreateJugadors(arrayJugadores) {
+  let players = document.querySelectorAll(".playerTr");
+  var count = 0;
+  arrayJugadores.forEach((jugador) => {
+    var name = document.createElement("td");
+    var pais = document.createElement("td");
+    var puntuacion = document.createElement("td");
+    name.textContent = jugador.nombre;
+    players[count].appendChild(name);
+    var img = document.createElement("img");
+    img.src = `../Leaderboard/4x3/${jugador.pais}.svg`;
+    if (jugador.pais == "") img.src = "../Leaderboard/4x3/default.png";
+    pais.appendChild(img);
+    players[count].appendChild(pais);
+    puntuacion.textContent = jugador.puntuacion;
+    players[count].appendChild(puntuacion);
+    count++;
+  });
+}
 
 function newRandom() {
   let rnd = Math.floor(Math.random() * 3) + 1;
   return rnd;
 }
 
-function checkUser(){
-
+function checkUser() {
   var nickName = window.localStorage.getItem("jugador");
   if (nickName == null || nickName == undefined) {
-    window.location.href = "../index.html"; 
+    window.location.href = "../index.html";
   }
-  
-
 }
