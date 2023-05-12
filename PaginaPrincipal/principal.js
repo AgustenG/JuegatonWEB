@@ -75,7 +75,7 @@ function CreateJugadors(arrayJugadores) {
     var name = document.createElement("td");
     var pais = document.createElement("td");
     var puntuacion = document.createElement("td");
-    name.textContent = jugador.nombre;
+    name.textContent = jugador.nickname;
     players[count].appendChild(name);
     var img = document.createElement("img");
     img.src = `../Leaderboard/4x3/${jugador.pais}.svg`;
